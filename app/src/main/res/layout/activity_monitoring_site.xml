@@ -32,7 +32,7 @@
                     android:textSize="20sp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="160dp"/>
+                    android:layout_marginRight="120dp"/>
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 

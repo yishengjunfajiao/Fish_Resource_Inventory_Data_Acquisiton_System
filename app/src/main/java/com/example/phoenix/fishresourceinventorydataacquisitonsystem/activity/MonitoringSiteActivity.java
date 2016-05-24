@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 
@@ -22,16 +22,28 @@ public class MonitoringSiteActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        //测试用
-        TextView title = (TextView) findViewById(R.id.mon_site_title);
-        title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
-            }
-        });
-
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.data_share){
+
+            return true;
+        }else if (itemId == R.id.data_submit){
+
+            return true;
+        }else if (itemId == R.id.turn){     //测试用，到时候删除
+            startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
