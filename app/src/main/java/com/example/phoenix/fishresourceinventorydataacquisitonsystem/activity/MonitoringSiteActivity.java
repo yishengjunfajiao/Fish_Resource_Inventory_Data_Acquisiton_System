@@ -15,6 +15,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.ConstantData;
@@ -24,7 +25,6 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.Co
  * */
 public class MonitoringSiteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,
         View.OnClickListener{
-
     //新增断面
     private GridLayout addFraSur = null;
     //监测单位
@@ -66,6 +66,12 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
     private View addSurfaceView = null;
     private View addPictureView = null;
 
+    //用于计算GridLayout一个View的大小
+    private int size;
+    private RelativeLayout.LayoutParams params = null;
+
+    private static long current_time = 0;      //记录系统当前时间
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +84,8 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
     }
 
     private void init(){
-        int size = getWindowManager().getDefaultDisplay().getWidth();
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(size/5,size/5);
+        size = getWindowManager().getDefaultDisplay().getWidth();
+        params = new RelativeLayout.LayoutParams(size/5,size/5);
 
         addFraSur = (GridLayout) findViewById(R.id.mon_site_add_fra_sur);
         addSurfaceView = LayoutInflater.from(MonitoringSiteActivity.this)
@@ -172,8 +178,18 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
                 startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
                 break;
             case R.id.image_add_pic:
-
+                Toast.makeText(MonitoringSiteActivity.this, "添加图片", Toast.LENGTH_SHORT).show();
                 break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if((System.currentTimeMillis() - current_time) > 2000){
+            Toast.makeText(MonitoringSiteActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            current_time = System.currentTimeMillis();
+        } else{
+            finish();
         }
     }
 }
