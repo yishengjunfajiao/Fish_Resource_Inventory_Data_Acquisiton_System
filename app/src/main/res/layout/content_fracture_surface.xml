@@ -12,4 +12,7 @@
     tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.FractureSurfaceActivity"
     tools:showIn="@layout/activity_fracture_surface">
 
+
+
+
 </RelativeLayout>

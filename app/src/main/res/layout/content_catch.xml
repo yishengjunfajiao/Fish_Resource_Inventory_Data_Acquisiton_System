@@ -12,4 +12,36 @@
     tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.CatchActivity"
     tools:showIn="@layout/activity_catch">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/fish_name"
+
+        android:background="@drawable/edittext_corner_shape"
+        android:hint="鱼类名称"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/ovum_seedlings_num"
+        android:layout_below="@+id/fish_name"
+        android:background="@drawable/edittext_corner_shape"
+        android:hint="卵苗总数"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/fish_ovum_num"
+        android:layout_below="@id/ovum_seedlings_num"
+        android:background="@drawable/edittext_corner_shape"
+        android:hint="鱼卵数"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/kid_fish_num"
+        android:layout_below="@id/fish_ovum_num"
+        android:background="@drawable/edittext_corner_shape"
+        android:hint="幼鱼数"
+        android:layout_marginTop="5dp"/>
 </RelativeLayout>
