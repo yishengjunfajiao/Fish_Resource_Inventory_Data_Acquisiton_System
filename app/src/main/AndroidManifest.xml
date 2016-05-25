@@ -11,8 +11,8 @@
         <activity
             android:name=".activity.MonitoringSiteActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,28 +22,44 @@
         <activity
             android:name=".activity.FractureSurfaceActivity"
             android:label="@string/title_activity_fracture_surface"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MeasuringLineActivity"
             android:label="@string/title_activity_measuring_line"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MeasuringSiteActivity"
             android:label="@string/title_activity_measuring_site"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.WaterCourseActivity"
             android:label="@string/title_activity_water_course"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.CatchActivity"
             android:label="@string/title_activity_catch"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SedimentActivity"
+            android:label="@string/title_activity_sediment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ZooplanktonActivity"
+            android:label="@string/title_activity_zooplankton"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PhytoplanktonActivity"
+            android:label="@string/title_activity_phytoplankton"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.BenthicOrganismActivity"
+            android:label="@string/title_activity_benthic_organism"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
