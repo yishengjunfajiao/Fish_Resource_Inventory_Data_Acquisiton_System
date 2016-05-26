@@ -59,6 +59,10 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
     private EditText endLatitude = null;
     //添加照片
     private GridLayout addPicture = null;
+    //起点定位
+    private ImageView startLocate = null;
+    //终点定位
+    private ImageView endLocate = null;
 
     private ArrayAdapter<String> provinceAdapter = null;
     private ArrayAdapter<String> cityAdapter = null;
@@ -123,6 +127,11 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
         endLongitude = (EditText) findViewById(R.id.end_longitude);
         endLatitude = (EditText) findViewById(R.id.end_latitude);
 
+        startLocate = (ImageView) findViewById(R.id.img_start_location);
+        startLocate.setOnClickListener(this);
+        endLocate = (ImageView) findViewById(R.id.img_end_location);
+        endLocate.setOnClickListener(this);
+
         addPicture = (GridLayout) findViewById(R.id.mon_site_add_pic);
         addPictureView = LayoutInflater.from(MonitoringSiteActivity.this)
                 .inflate(R.layout.monitor_site_grid_add_pic,null);
@@ -179,6 +188,12 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
                 break;
             case R.id.image_add_pic:
                 Toast.makeText(MonitoringSiteActivity.this, "添加图片", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.img_start_location:
+
+                break;
+            case R.id.img_end_location:
+
                 break;
         }
     }

@@ -130,23 +130,33 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/edittext_corner_shape"
             android:layout_marginRight="10dp"/>
-        <EditText
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/temperature"
-            android:layout_weight="1"
-            android:hint="气温"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/edittext_corner_shape"
-            android:layout_marginLeft="10dp"/>
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/temperature"
+                android:hint="气温"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/temperature"
+                android:text="℃"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:id="@+id/start_location_layout"
-        android:orientation="horizontal"
         android:layout_below="@id/weather_layout"
-        android:weightSum="2"
         android:layout_marginTop="5dp">
         <EditText
             android:layout_width="match_parent"
@@ -157,6 +167,21 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/edittext_corner_shape"
             android:layout_marginRight="10dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/img_start_location"
+            android:src="@drawable/locate"
+            android:layout_weight="8"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/start_location_layout_2"
+        android:layout_below="@id/start_location_layout"
+        android:layout_marginTop="5dp">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -165,15 +190,20 @@
             android:hint="起点纬度"
             android:layout_gravity="center_vertical"
             android:background="@drawable/edittext_corner_shape"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginRight="10dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"/><!-- 占位用 -->
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:id="@+id/end_location_layout"
         android:orientation="horizontal"
-        android:layout_below="@id/start_location_layout"
-        android:weightSum="2"
+        android:layout_below="@id/start_location_layout_2"
         android:layout_marginTop="5dp">
         <EditText
             android:layout_width="match_parent"
@@ -184,6 +214,21 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/edittext_corner_shape"
             android:layout_marginRight="10dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/img_end_location"
+            android:src="@drawable/locate"
+            android:layout_weight="8"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/end_location_layout_2"
+        android:layout_below="@id/end_location_layout"
+        android:layout_marginTop="5dp">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -192,13 +237,19 @@
             android:hint="终点纬度"
             android:layout_gravity="center_vertical"
             android:background="@drawable/edittext_corner_shape"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginRight="10dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"/><!-- 占位用 -->
     </LinearLayout>
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mon_site_add_pic"
-        android:layout_below="@id/end_location_layout"
+        android:layout_below="@id/end_location_layout_2"
         android:columnCount="4"
         android:layout_marginTop="10dp"
         android:padding="3dp">
