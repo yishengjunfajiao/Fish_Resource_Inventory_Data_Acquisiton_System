@@ -190,10 +190,10 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
                 Toast.makeText(MonitoringSiteActivity.this, "添加图片", Toast.LENGTH_SHORT).show();
                 break;*/
             case R.id.img_start_location:
-                Toast.makeText(MonitoringSiteActivity.this, "定位", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MonitoringSiteActivity.this, "起点定位", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.img_end_location:
-                Toast.makeText(MonitoringSiteActivity.this, "定位", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MonitoringSiteActivity.this, "终点定位", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
