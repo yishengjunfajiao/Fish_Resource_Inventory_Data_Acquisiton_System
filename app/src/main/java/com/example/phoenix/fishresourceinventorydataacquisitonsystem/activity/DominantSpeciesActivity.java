@@ -1,6 +1,5 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,11 +15,9 @@ import android.widget.Toast;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 
 /**
- * 维护 底栖生物 界面
+ * 维护 优势种 界面
  * */
-public class BenthicOrganismActivity extends AppCompatActivity implements View.OnClickListener{
-    //新增优势种
-    private GridLayout addDominantSpecies = null;
+public class DominantSpeciesActivity extends AppCompatActivity implements View.OnClickListener{
     //数量
     private EditText mount = null;
     //生物量
@@ -28,7 +25,6 @@ public class BenthicOrganismActivity extends AppCompatActivity implements View.O
     //添加照片
     private GridLayout addPic = null;
 
-    private View addDominantSpeciesView = null;
     private View addPicView = null;
 
     //用于计算GridLayout一个View的大小
@@ -38,9 +34,9 @@ public class BenthicOrganismActivity extends AppCompatActivity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_benthic_organism);
+        setContentView(R.layout.activity_dominant_species);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("底栖生物");
+        toolbar.setTitle("优势种");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -51,18 +47,11 @@ public class BenthicOrganismActivity extends AppCompatActivity implements View.O
         size = getWindowManager().getDefaultDisplay().getWidth();
         params = new RelativeLayout.LayoutParams(size/5,size/5);
 
-        addDominantSpecies = (GridLayout) findViewById(R.id.ben_add_dom_spe);
-        addDominantSpeciesView = LayoutInflater.from(BenthicOrganismActivity.this)
-                .inflate(R.layout.add_dom_spe,null);
-        addDominantSpeciesView.setLayoutParams(params);
-        addDominantSpeciesView.setOnClickListener(this);
-        addDominantSpecies.addView(addDominantSpeciesView);
-
         mount = (EditText) findViewById(R.id.mount);
         biomass = (EditText) findViewById(R.id.biomass);
 
-        addPic = (GridLayout) findViewById(R.id.ben_add_pic);
-        addPicView = LayoutInflater.from(BenthicOrganismActivity.this)
+        addPic = (GridLayout) findViewById(R.id.dom_add_pic);
+        addPicView = LayoutInflater.from(DominantSpeciesActivity.this)
                 .inflate(R.layout.grid_view_add_pic,null);
         addPicView.setLayoutParams(params);
         addPicView.setOnClickListener(this);
@@ -72,13 +61,9 @@ public class BenthicOrganismActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.add_dom_spe:
-
-                startActivity(new Intent(BenthicOrganismActivity.this,DominantSpeciesActivity.class));
-                break;
             case R.id.add_pic:
 
-                Toast.makeText(BenthicOrganismActivity.this, "照片", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DominantSpeciesActivity.this, "照片", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

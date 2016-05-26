@@ -12,7 +12,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/zoo_appbar"
+        android:id="@+id/dom_appbar"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -27,11 +27,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/zoo_appbar">
+        android:layout_below="@id/dom_appbar">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <include layout="@layout/content_zooplankton"
+            <include layout="@layout/content_dominant_species"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"

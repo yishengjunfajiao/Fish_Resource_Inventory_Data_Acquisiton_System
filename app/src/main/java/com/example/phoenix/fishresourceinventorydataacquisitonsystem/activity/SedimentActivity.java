@@ -9,13 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 
 /**
  * 维护 沉积物 界面
  * */
-public class SedimentActivity extends AppCompatActivity {
+public class SedimentActivity extends AppCompatActivity implements View.OnClickListener{
     //添加照片
     private GridLayout addPicture = null;
 
@@ -45,6 +46,7 @@ public class SedimentActivity extends AppCompatActivity {
         addPictureView = LayoutInflater.from(SedimentActivity.this)
                 .inflate(R.layout.grid_view_add_pic,null);
         addPictureView.setLayoutParams(params);
+        addPictureView.setOnClickListener(this);
         addPicture.addView(addPictureView);
 
     }
@@ -70,5 +72,15 @@ public class SedimentActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.add_pic:
+
+                Toast.makeText(SedimentActivity.this, "照片", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
