@@ -10,16 +10,16 @@ import android.view.View;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 
 /**
- * 维护 浮游植物 界面
+ * 维护 鱼样本 界面
  * */
-public class PhytoplanktonActivity extends AppCompatActivity {
+public class FishSampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phytoplankton);
+        setContentView(R.layout.activity_fish_sample);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("浮游植物");
+        toolbar.setTitle("鱼样本");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

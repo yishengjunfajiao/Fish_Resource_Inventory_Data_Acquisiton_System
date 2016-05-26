@@ -10,4 +10,7 @@
     <string name="title_activity_zooplankton">ZooplanktonActivity</string>
     <string name="title_activity_phytoplankton">PhytoplanktonActivity</string>
     <string name="title_activity_benthic_organism">BenthicOrganismActivity</string>
+    <string name="title_activity_netting_gear">NettingGearActivity</string>
+    <string name="title_activity_fish_sample">FishSampleActivity</string>
+    <string name="title_activity_egg_samples">EggSamplesActivity</string>
 </resources>

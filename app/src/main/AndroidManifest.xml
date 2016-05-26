@@ -59,6 +59,18 @@
         <activity
             android:name=".activity.BenthicOrganismActivity"
             android:label="@string/title_activity_benthic_organism"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.NettingGearActivity"
+            android:label="@string/title_activity_netting_gear"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.FishSampleActivity"
+            android:label="@string/title_activity_fish_sample"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.EggSamplesActivity"
+            android:label="@string/title_activity_egg_samples"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
