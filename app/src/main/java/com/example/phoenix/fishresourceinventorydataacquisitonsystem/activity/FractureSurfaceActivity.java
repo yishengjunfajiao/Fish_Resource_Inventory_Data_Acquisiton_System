@@ -20,7 +20,7 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.Co
 /**
  * 维护 断面 界面
  * */
-public class FractureSurfaceActivity extends AppCompatActivity {
+public class FractureSurfaceActivity extends AppCompatActivity implements View.OnClickListener{
     //新增测线
     private GridLayout addMeaLine = null;
     //采样方位
@@ -68,6 +68,7 @@ public class FractureSurfaceActivity extends AppCompatActivity {
         addMeaLineView = LayoutInflater.from(FractureSurfaceActivity.this)
                 .inflate(R.layout.fra_sur_add_mea_line,null);
         addMeaLineView.setLayoutParams(params);
+        addMeaLineView.setOnClickListener(this);
         addMeaLine.addView(addMeaLineView);
 
         samplingPosition = (Spinner) findViewById(R.id.sampling_position);
@@ -76,28 +77,33 @@ public class FractureSurfaceActivity extends AppCompatActivity {
         samplingPosition.setAdapter(samplingPositionAdapter);
 
         distanceFromShore = (EditText) findViewById(R.id.distance_from_shore);
+
         addSediment = (GridLayout) findViewById(R.id.fra_sur_add_sediment);
         addSedimentView = LayoutInflater.from(FractureSurfaceActivity.this)
                 .inflate(R.layout.fra_sur_add_sediment,null);
         addSedimentView.setLayoutParams(params);
+        addSedimentView.setOnClickListener(this);
         addSediment.addView(addSedimentView);
 
         addZooplankton = (GridLayout) findViewById(R.id.fra_sur_add_zooplankton);
         addZooplanktonView = LayoutInflater.from(FractureSurfaceActivity.this)
                 .inflate(R.layout.fra_sur_add_zooplankton,null);
         addZooplanktonView.setLayoutParams(params);
+        addZooplanktonView.setOnClickListener(this);
         addZooplankton.addView(addZooplanktonView);
 
         addPhytoplankton = (GridLayout) findViewById(R.id.fra_sur_add_phytoplankton);
         addPhytoplanktonView = LayoutInflater.from(FractureSurfaceActivity.this)
                 .inflate(R.layout.fra_sur_add_phytoplankton,null);
         addPhytoplanktonView.setLayoutParams(params);
+        addPhytoplanktonView.setOnClickListener(this);
         addPhytoplankton.addView(addPhytoplanktonView);
 
         addBenthicOrganism = (GridLayout) findViewById(R.id.fra_sur_add_benthic_organism);
         addBenthicOrganismView = LayoutInflater.from(FractureSurfaceActivity.this)
                 .inflate(R.layout.fra_sur_add_benthic_organism,null);
         addBenthicOrganismView.setLayoutParams(params);
+        addBenthicOrganismView.setOnClickListener(this);
         addBenthicOrganism.addView(addBenthicOrganismView);
 
     }
@@ -122,10 +128,33 @@ public class FractureSurfaceActivity extends AppCompatActivity {
 
             finish();
             return true;
-        }else if (itemId == R.id.turn){     //测试用，到时候删除
-            startActivity(new Intent(FractureSurfaceActivity.this, MeasuringLineActivity.class));
-            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.add_mea_line:
+
+                startActivity(new Intent(FractureSurfaceActivity.this, MeasuringLineActivity.class));
+                break;
+            case R.id.add_sediment:
+
+                startActivity(new Intent(FractureSurfaceActivity.this, SedimentActivity.class));
+                break;
+            case R.id.add_zooplankton:
+
+                startActivity(new Intent(FractureSurfaceActivity.this, ZooplanktonActivity.class));
+                break;
+            case R.id.add_phytoplankton:
+
+                startActivity(new Intent(FractureSurfaceActivity.this, PhytoplanktonActivity.class));
+                break;
+            case R.id.add_benthic_organism:
+
+                startActivity(new Intent(FractureSurfaceActivity.this, BenthicOrganismActivity.class));
+                break;
+        }
     }
 }

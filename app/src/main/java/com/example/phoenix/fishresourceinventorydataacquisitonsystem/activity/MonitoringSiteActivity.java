@@ -111,6 +111,7 @@ public class MonitoringSiteActivity extends AppCompatActivity
         addSurfaceView = LayoutInflater.from(MonitoringSiteActivity.this)
                 .inflate(R.layout.monitor_site_grid_add_fra_surface,null);
         addSurfaceView.setLayoutParams(params);
+        addSurfaceView.setOnClickListener(this);
         addFraSur.addView(addSurfaceView);
 
         detectionUnit = (EditText) findViewById(R.id.detection_unit);
@@ -148,10 +149,9 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
         addPicture = (GridLayout) findViewById(R.id.mon_site_add_pic);
         addPictureView = LayoutInflater.from(MonitoringSiteActivity.this)
-                .inflate(R.layout.monitor_site_grid_add_pic,null);
+                .inflate(R.layout.grid_view_add_pic,null);
         addPictureView.setLayoutParams(params);
-        //ImageView add2 = (ImageView) addPictureView.findViewById(R.id.image_add_pic);
-        //add2.setOnClickListener(this);
+        addPictureView.setOnClickListener(this);
         addPicture.addView(addPictureView);
 
     }
@@ -183,9 +183,6 @@ public class MonitoringSiteActivity extends AppCompatActivity
             return true;
         }else if (itemId == R.id.data_submit){
 
-            return true;
-        }else if (itemId == R.id.turn){     //测试用，到时候删除
-            startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -219,11 +216,12 @@ public class MonitoringSiteActivity extends AppCompatActivity
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            /*case R.id.image_add_surf:
+            case R.id.add_fra_surface:
+                startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
                 break;
-            case R.id.image_add_pic:
+            case R.id.add_pic:
                 Toast.makeText(MonitoringSiteActivity.this, "添加图片", Toast.LENGTH_SHORT).show();
-                break;*/
+                break;
             case R.id.img_start_location:
                 Toast.makeText(MonitoringSiteActivity.this, "起点定位", Toast.LENGTH_SHORT).show();
                 break;

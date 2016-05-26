@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="5dp"
     android:background="#fafafa"
     tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.MonitoringSiteActivity"
     tools:showIn="@layout/app_bar_monitoring_site">

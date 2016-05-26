@@ -72,6 +72,7 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
         addMeaSiteView = LayoutInflater.from(MeasuringLineActivity.this)
                 .inflate(R.layout.mea_lin_add_mea_site,null);
         addMeaSiteView.setLayoutParams(params);
+        addMeaSiteView.setOnClickListener(this);
         addMeaSite.addView(addMeaSiteView);
     }
 
@@ -93,9 +94,6 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
         }else if (itemId == android.R.id.home){     //左上角返回按钮点击时间
             finish();
             return true;
-        }else if (itemId == R.id.turn){     //测试用，到时候删除
-            startActivity(new Intent(MeasuringLineActivity.this,MeasuringSiteActivity.class));
-            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -108,6 +106,10 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id._img_end_location:
                 Toast.makeText(MeasuringLineActivity.this, "终点定位", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.add_mea_site:
+
+                startActivity(new Intent(MeasuringLineActivity.this,MeasuringSiteActivity.class));
                 break;
         }
     }
