@@ -52,4 +52,5 @@ public class ConstantData {
             {"花地玛堂区","圣安多尼堂区","大堂区","望德堂区","风顺堂区","嘉模堂区","圣方济各堂区","路氹城"}
             };
 
+    public static final String[] SAMPLEPOSITION = {"采样方位","左岸","右岸","中间"};
 }

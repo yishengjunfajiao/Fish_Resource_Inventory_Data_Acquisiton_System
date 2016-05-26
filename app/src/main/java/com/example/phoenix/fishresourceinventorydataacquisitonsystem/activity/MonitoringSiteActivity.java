@@ -95,8 +95,6 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
         addSurfaceView = LayoutInflater.from(MonitoringSiteActivity.this)
                 .inflate(R.layout.monitor_site_grid_add_fra_surface,null);
         addSurfaceView.setLayoutParams(params);
-        ImageView add1 = (ImageView) addSurfaceView.findViewById(R.id.image_add_surf);
-        add1.setOnClickListener(this);
         addFraSur.addView(addSurfaceView);
 
         detectionUnit = (EditText) findViewById(R.id.detection_unit);
@@ -136,8 +134,8 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
         addPictureView = LayoutInflater.from(MonitoringSiteActivity.this)
                 .inflate(R.layout.monitor_site_grid_add_pic,null);
         addPictureView.setLayoutParams(params);
-        ImageView add2 = (ImageView) addPictureView.findViewById(R.id.image_add_pic);
-        add2.setOnClickListener(this);
+        //ImageView add2 = (ImageView) addPictureView.findViewById(R.id.image_add_pic);
+        //add2.setOnClickListener(this);
         addPicture.addView(addPictureView);
 
     }
@@ -156,6 +154,9 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
             return true;
         }else if (itemId == R.id.data_submit){
 
+            return true;
+        }else if (itemId == R.id.turn){     //测试用，到时候删除
+            startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -183,17 +184,16 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.image_add_surf:
-                startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
+            /*case R.id.image_add_surf:
                 break;
             case R.id.image_add_pic:
                 Toast.makeText(MonitoringSiteActivity.this, "添加图片", Toast.LENGTH_SHORT).show();
-                break;
+                break;*/
             case R.id.img_start_location:
-
+                Toast.makeText(MonitoringSiteActivity.this, "定位", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.img_end_location:
-
+                Toast.makeText(MonitoringSiteActivity.this, "定位", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
