@@ -7,12 +7,12 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#fafafa"
-    tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.MeasuringLineActivity">
+    tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.MonitoringSiteActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mea_lin_appbar"
+        android:id="@+id/mon_site_appbar"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -27,11 +27,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/mea_lin_appbar">
+        android:layout_below="@id/mon_site_appbar">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <include layout="@layout/content_measuring_line"
+            <include layout="@layout/content_monitoring_site"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
@@ -39,5 +39,4 @@
                 android:layout_marginTop="5dp"/>
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

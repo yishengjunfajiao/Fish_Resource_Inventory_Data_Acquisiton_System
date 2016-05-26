@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MonitoringSiteActivity"
-    tools:showIn="@layout/activity_monitoring_site"
-    android:scrollbars="vertical">
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:background="#fafafa"
+    tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.MonitoringSiteActivity"
+    tools:showIn="@layout/app_bar_monitoring_site">
 
     <GridLayout
         android:layout_width="match_parent"
@@ -255,5 +259,4 @@
         android:padding="3dp">
 
     </GridLayout>
-
 </RelativeLayout>

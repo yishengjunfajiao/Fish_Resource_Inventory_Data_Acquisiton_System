@@ -27,7 +27,7 @@ public class MeasuringSiteActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.monitoring_site, menu);
         return true;
     }
 

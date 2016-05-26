@@ -77,7 +77,7 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.monitoring_site, menu);
         return true;
     }
 

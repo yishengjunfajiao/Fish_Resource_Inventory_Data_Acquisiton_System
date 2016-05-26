@@ -2,6 +2,10 @@ package com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -23,8 +27,11 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.Co
 /**
  * 维护 监测点 界面
  * */
-public class MonitoringSiteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,
+public class MonitoringSiteActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+        AdapterView.OnItemSelectedListener,
         View.OnClickListener{
+
     //新增断面
     private GridLayout addFraSur = null;
     //监测单位
@@ -81,8 +88,17 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoring_site);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
+        toolbar.setTitle("监测点");
         setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         init();
     }
@@ -141,8 +157,21 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
     }
 
     @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else if((System.currentTimeMillis() - current_time) > 2000){
+            Toast.makeText(MonitoringSiteActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            current_time = System.currentTimeMillis();
+        } else{
+            finish();
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.monitoring_site, menu);
         return true;
     }
 
@@ -162,23 +191,29 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (parent.getId()){
-            case R.id.province:
-                cityAdapter = new ArrayAdapter<>(MonitoringSiteActivity.this,
-                        android.R.layout.simple_spinner_item,ConstantData.CITY[position]);
-                city.setAdapter(cityAdapter);
-                break;
-            case R.id.city:
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-                break;
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
         }
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override
@@ -199,12 +234,21 @@ public class MonitoringSiteActivity extends AppCompatActivity implements Adapter
     }
 
     @Override
-    public void onBackPressed() {
-        if((System.currentTimeMillis() - current_time) > 2000){
-            Toast.makeText(MonitoringSiteActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-            current_time = System.currentTimeMillis();
-        } else{
-            finish();
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()){
+            case R.id.province:
+                cityAdapter = new ArrayAdapter<>(MonitoringSiteActivity.this,
+                        android.R.layout.simple_spinner_item,ConstantData.CITY[position]);
+                city.setAdapter(cityAdapter);
+                break;
+            case R.id.city:
+
+                break;
         }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

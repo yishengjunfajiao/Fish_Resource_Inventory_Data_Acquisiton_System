@@ -13,4 +13,9 @@
     <string name="title_activity_netting_gear">NettingGearActivity</string>
     <string name="title_activity_fish_sample">FishSampleActivity</string>
     <string name="title_activity_egg_samples">EggSamplesActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
