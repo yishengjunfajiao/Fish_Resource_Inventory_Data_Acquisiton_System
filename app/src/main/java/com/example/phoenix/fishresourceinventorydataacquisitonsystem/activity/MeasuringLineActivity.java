@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.ConstantData;
 
 /**
  * 维护 测线 界面
@@ -35,6 +36,8 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
     private ImageView startLocate = null;
     //终点定位
     private ImageView endLocate = null;
+    //确认按钮
+    private com.rey.material.widget.Button ensure = null;
 
     private View addMeaSiteView = null;
 
@@ -74,6 +77,9 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
         addMeaSiteView.setLayoutParams(params);
         addMeaSiteView.setOnClickListener(this);
         addMeaSite.addView(addMeaSiteView);
+
+        ensure = (com.rey.material.widget.Button) findViewById(R.id.ensure);
+        ensure.setOnClickListener(this);
     }
 
     @Override
@@ -99,6 +105,16 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ConstantData.INPUTMOREDATA &
+                resultCode == ConstantData.MEASURINGSITE_SUCCESSFUL){   //新增测点成功
+            //动态改变GridLayout的View
+
+        }
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id._img_start_location:
@@ -109,7 +125,16 @@ public class MeasuringLineActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.add_mea_site:
 
-                startActivity(new Intent(MeasuringLineActivity.this,MeasuringSiteActivity.class));
+                startActivityForResult(new Intent(MeasuringLineActivity.this,
+                        MeasuringSiteActivity.class), ConstantData.INPUTMOREDATA);
+                break;
+            case R.id.ensure:
+                //确认数据之前做一些提示
+
+                Intent intent = getIntent();
+
+                setResult(ConstantData.MEASURINGLINE_SUCCESSFUL,intent);
+                finish();
                 break;
         }
     }

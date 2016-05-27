@@ -53,4 +53,21 @@ public class ConstantData {
             };
 
     public static final String[] SAMPLEPOSITION = {"采样方位","左岸","右岸","中间"};
+
+    public static final String[] WATERCOURSE = {"采样水层","上","中","下"};
+
+    public static final int INPUTMOREDATA = 1;
+    public static final int FRACTURESURFACE_SUCCESSFUL = 2;
+    public static final int MEASURINGLINE_SUCCESSFUL = 3;
+    public static final int SEDIMENT_SUCCESSFUL = 4;
+    public static final int ZOOPLANKTON_SUCCESSFUL = 5;
+    public static final int PHYTOPLANKTON_SUCCESSFUL = 6;
+    public static final int BENTHICORGANISM_SUCCESSFUL = 7;
+    public static final int MEASURINGSITE_SUCCESSFUL = 8;
+    public static final int WATERCOURSE_SUCCESSFUL = 9;
+    public static final int CATCH_SUCCESSFUL = 10;
+    public static final int NETTINGGEAR_SUCCESSFUL = 11;
+    public static final int FISHSAMPLE_SUCCESSFUL = 12;
+    public static final int EGGSAMPLE_SUCCESSFUL = 13;
+    public static final int DOMINANTSPECIES_SUCCESSFUL = 14;
 }

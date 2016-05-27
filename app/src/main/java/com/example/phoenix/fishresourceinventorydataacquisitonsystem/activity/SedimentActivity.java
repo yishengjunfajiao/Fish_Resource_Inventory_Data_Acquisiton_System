@@ -1,5 +1,6 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.ConstantData;
 
 /**
  * 维护 沉积物 界面
@@ -19,6 +21,8 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 public class SedimentActivity extends AppCompatActivity implements View.OnClickListener{
     //添加照片
     private GridLayout addPicture = null;
+    //确认按钮
+    private com.rey.material.widget.Button ensure = null;
 
     private View addPictureView = null;
 
@@ -48,6 +52,9 @@ public class SedimentActivity extends AppCompatActivity implements View.OnClickL
         addPictureView.setLayoutParams(params);
         addPictureView.setOnClickListener(this);
         addPicture.addView(addPictureView);
+
+        ensure = (com.rey.material.widget.Button) findViewById(R.id.ensure);
+        ensure.setOnClickListener(this);
 
     }
 
@@ -80,6 +87,14 @@ public class SedimentActivity extends AppCompatActivity implements View.OnClickL
             case R.id.add_pic:
 
                 Toast.makeText(SedimentActivity.this, "照片", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.ensure:
+                //确认数据之前做一些提示
+
+                Intent intent = getIntent();
+
+                setResult(ConstantData.SEDIMENT_SUCCESSFUL,intent);
+                finish();
                 break;
         }
     }

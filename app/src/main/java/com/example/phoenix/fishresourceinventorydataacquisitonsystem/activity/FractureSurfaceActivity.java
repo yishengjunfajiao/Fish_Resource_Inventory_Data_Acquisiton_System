@@ -35,6 +35,8 @@ public class FractureSurfaceActivity extends AppCompatActivity implements View.O
     private GridLayout addPhytoplankton = null;
     //添加底栖生物
     private GridLayout addBenthicOrganism = null;
+    //确认按钮
+    private com.rey.material.widget.Button ensure = null;
 
     //用于计算GridLayout一个View的大小
     private int size;
@@ -106,6 +108,9 @@ public class FractureSurfaceActivity extends AppCompatActivity implements View.O
         addBenthicOrganismView.setOnClickListener(this);
         addBenthicOrganism.addView(addBenthicOrganismView);
 
+        ensure = (com.rey.material.widget.Button) findViewById(R.id.ensure);
+        ensure.setOnClickListener(this);
+
     }
 
     @Override
@@ -137,24 +142,56 @@ public class FractureSurfaceActivity extends AppCompatActivity implements View.O
         switch (v.getId()){
             case R.id.add_mea_line:
 
-                startActivity(new Intent(FractureSurfaceActivity.this, MeasuringLineActivity.class));
+                startActivityForResult(new Intent(FractureSurfaceActivity.this,
+                        MeasuringLineActivity.class), ConstantData.INPUTMOREDATA);
                 break;
             case R.id.add_sediment:
 
-                startActivity(new Intent(FractureSurfaceActivity.this, SedimentActivity.class));
+                startActivityForResult(new Intent(FractureSurfaceActivity.this,
+                        SedimentActivity.class), ConstantData.INPUTMOREDATA);
                 break;
             case R.id.add_zooplankton:
 
-                startActivity(new Intent(FractureSurfaceActivity.this, ZooplanktonActivity.class));
+                startActivityForResult(new Intent(FractureSurfaceActivity.this,
+                        ZooplanktonActivity.class), ConstantData.INPUTMOREDATA);
                 break;
             case R.id.add_phytoplankton:
 
-                startActivity(new Intent(FractureSurfaceActivity.this, PhytoplanktonActivity.class));
+                startActivityForResult(new Intent(FractureSurfaceActivity.this,
+                        PhytoplanktonActivity.class), ConstantData.INPUTMOREDATA);
                 break;
             case R.id.add_benthic_organism:
 
-                startActivity(new Intent(FractureSurfaceActivity.this, BenthicOrganismActivity.class));
+                startActivityForResult(new Intent(FractureSurfaceActivity.this,
+                        BenthicOrganismActivity.class), ConstantData.INPUTMOREDATA);
                 break;
+            case R.id.ensure:
+                //确认数据之前做一些提示
+
+                Intent intent = getIntent();
+
+                setResult(ConstantData.FRACTURESURFACE_SUCCESSFUL,intent);
+                finish();
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ConstantData.INPUTMOREDATA){
+            if (resultCode == ConstantData.MEASURINGLINE_SUCCESSFUL){   //新增测线成功
+                //动态改变GridLayout的View
+
+            }else if (resultCode == ConstantData.SEDIMENT_SUCCESSFUL){  //新增沉积物成功
+
+            }else if (resultCode == ConstantData.ZOOPLANKTON_SUCCESSFUL){   //新增浮游动物成功
+
+            }else if (resultCode == ConstantData.PHYTOPLANKTON_SUCCESSFUL){    //新增浮游植物成功
+
+            }else if (resultCode == ConstantData.BENTHICORGANISM_SUCCESSFUL){   //新增底栖生物成功
+
+            }
         }
     }
 }
