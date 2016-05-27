@@ -12,44 +12,143 @@
     tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.WaterCourseActivity"
     tools:showIn="@layout/activity_water_course">
 
-    <EditText
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/water_course"
+        android:layout_height="wrap_content"
+        android:id="@+id/con_water_add_fish"
+        android:columnCount="4"
+        android:padding="3dp">
 
-        android:background="@drawable/edittext_corner_shape"
-        android:hint="水层"
-        android:layout_marginTop="5dp"/>
-    <EditText
+    </GridLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:id="@+id/deep"
-        android:layout_below="@+id/water_course"
-        android:background="@drawable/edittext_corner_shape"
-        android:hint="深度"
-        android:layout_marginTop="5dp"/>
-    <EditText
+        android:id="@+id/con_water_ly_1"
+        android:orientation="horizontal"
+        android:layout_below="@+id/con_water_add_fish"
+        android:weightSum="2"
+        android:layout_marginTop="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/water_course">
+
+            </Spinner>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/deep"
+                android:hint="深度"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/deep"
+                android:text="m"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:id="@+id/water_temperature"
-        android:layout_below="@id/deep"
-        android:background="@drawable/edittext_corner_shape"
-        android:hint="水温"
-        android:layout_marginTop="5dp"/>
-    <EditText
-    android:layout_width="match_parent"
-    android:layout_height="35dp"
-    android:id="@+id/water_level"
-    android:layout_below="@id/water_temperature"
-    android:background="@drawable/edittext_corner_shape"
-    android:hint="水位"
-    android:layout_marginTop="5dp"/>
-    <EditText
+        android:id="@+id/con_water_ly_2"
+        android:orientation="horizontal"
+        android:layout_below="@+id/con_water_ly_1"
+        android:weightSum="2"
+        android:layout_marginTop="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/water_temperature"
+                android:hint="水温"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/water_temperature"
+                android:text="℃"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/water_level"
+                android:hint="水位"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:id="@+id/flow_amount"
-        android:layout_below="@id/water_level"
-        android:background="@drawable/edittext_corner_shape"
-        android:hint="流量"
-        android:layout_marginTop="5dp"/>
+        android:id="@+id/con_water_ly_3"
+        android:orientation="horizontal"
+        android:layout_below="@+id/con_water_ly_2"
+        android:weightSum="2"
+        android:layout_marginTop="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/water_flow"
+                android:hint="流量"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/water_flow"
+                android:text="m³/s"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/con_water_add_net"
+        android:layout_below="@+id/con_water_ly_3"
+        android:columnCount="4"
+        android:padding="3dp">
+
+    </GridLayout>
 </RelativeLayout>

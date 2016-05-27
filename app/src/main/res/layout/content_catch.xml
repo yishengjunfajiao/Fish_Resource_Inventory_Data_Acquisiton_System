@@ -12,11 +12,26 @@
     tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.CatchActivity"
     tools:showIn="@layout/activity_catch">
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/catch_addfish"
+        android:columnCount="4">
+
+    </GridLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/catch_addfish"
+        android:id="@+id/catch_addegg"
+        android:columnCount="4">
+
+    </GridLayout>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:id="@+id/fish_name"
-
+        android:layout_below="@+id/catch_addegg"
         android:background="@drawable/edittext_corner_shape"
         android:hint="鱼类名称"
         android:layout_marginTop="5dp"/>
@@ -28,20 +43,59 @@
         android:background="@drawable/edittext_corner_shape"
         android:hint="卵苗总数"
         android:layout_marginTop="5dp"/>
-    <EditText
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/fish_ovum_num"
+        android:layout_height="wrap_content"
         android:layout_below="@id/ovum_seedlings_num"
-        android:background="@drawable/edittext_corner_shape"
-        android:hint="鱼卵数"
-        android:layout_marginTop="5dp"/>
-    <EditText
+        android:id="@+id/fish_ovum_num_rl"
+
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:id="@+id/fish_ovum_num"
+            android:background="@drawable/edittext_corner_shape"
+            android:hint="鱼卵数"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/fish_ovum_num"
+            android:text="粒"
+            android:textSize="20sp"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/kid_fish_num"
-        android:layout_below="@id/fish_ovum_num"
-        android:background="@drawable/edittext_corner_shape"
-        android:hint="幼鱼数"
-        android:layout_marginTop="5dp"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fish_ovum_num_rl"
+        android:id="@+id/kid_fish_num_rl"
+
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:id="@+id/kid_fish_num"
+            android:background="@drawable/edittext_corner_shape"
+            android:hint="幼鱼数"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/kid_fish_num"
+            android:text="粒"
+            android:textSize="20sp"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kid_fish_num_rl"
+        android:id="@+id/catch_addpic"
+        android:columnCount="4">
+
+    </GridLayout>
 </RelativeLayout>

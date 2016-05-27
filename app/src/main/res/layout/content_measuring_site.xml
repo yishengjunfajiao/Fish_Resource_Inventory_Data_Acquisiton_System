@@ -11,56 +11,96 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.MeasuringSiteActivity"
     tools:showIn="@layout/activity_measuring_site">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/longitude_latitude_layout"
-        android:orientation="horizontal"
 
-        android:weightSum="2"
-        android:layout_marginTop="5dp">
-        <EditText
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:id="@+id/longitude_latitude_layout"-->
+        <!--android:orientation="horizontal"-->
+
+        <!--android:weightSum="2"-->
+        <!--android:layout_marginTop="5dp">-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/longitude"
-            android:layout_weight="1"
-            android:hint="经度"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/edittext_corner_shape"
-            android:layout_marginRight="10dp"/>
-        <EditText
+            android:layout_height="35dp"
+            android:id="@+id/longitude_latitude_layout1"
+
+            android:layout_marginTop="5dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/start_longitude"
+                android:layout_weight="1"
+                android:hint="经度"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginRight="10dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_start_location"
+                android:src="@drawable/locate"
+                android:layout_weight="8"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/latitude"
-            android:layout_weight="1"
-            android:hint="纬度"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/edittext_corner_shape"
-            android:layout_marginLeft="10dp"/>
-    </LinearLayout>
-    <EditText
+            android:layout_height="35dp"
+            android:id="@+id/longitude_latitude_layout2"
+            android:layout_below="@+id/longitude_latitude_layout1"
+            android:layout_marginTop="5dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/longitude"
+
+                android:layout_weight="1"
+                android:hint="纬度"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginRight="10dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:src="@drawable/locate"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+
+    <!---->
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/sampling_water1"
-        android:layout_below="@id/longitude_latitude_layout"
-        android:background="@drawable/edittext_corner_shape"
-        android:hint="采样水层1"
-        android:layout_marginTop="5dp"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/sampling_water2"
-        android:hint="采样水层2"
-        android:background="@drawable/edittext_corner_shape"
-        android:layout_below="@id/sampling_water1"
-        android:layout_marginTop="5dp"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:id="@+id/sampling_water3"
-        android:hint="采样水层3"
-        android:background="@drawable/edittext_corner_shape"
-        android:layout_below="@id/sampling_water2"
-        android:layout_marginTop="5dp"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/longitude_latitude_layout2"
+        android:id="@+id/cont_sitw_add_watercourse"
+        android:columnCount="3">
+
+    </GridLayout>
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:id="@+id/sampling_water1"-->
+        <!--android:layout_below="@id/longitude_latitude_layout"-->
+        <!--android:background="@drawable/edittext_corner_shape"-->
+        <!--android:hint="采样水层1"-->
+        <!--android:layout_marginTop="5dp"/>-->
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:id="@+id/sampling_water2"-->
+        <!--android:hint="采样水层2"-->
+        <!--android:background="@drawable/edittext_corner_shape"-->
+        <!--android:layout_below="@id/sampling_water1"-->
+        <!--android:layout_marginTop="5dp"/>-->
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:id="@+id/sampling_water3"-->
+        <!--android:hint="采样水层3"-->
+        <!--android:background="@drawable/edittext_corner_shape"-->
+        <!--android:layout_below="@id/sampling_water2"-->
+        <!--android:layout_marginTop="5dp"/>-->
 
 </RelativeLayout>
