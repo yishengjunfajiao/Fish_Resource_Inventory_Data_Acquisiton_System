@@ -10,11 +10,6 @@
     <item
         android:id="@+id/data_submit"
         android:orderInCategory="100"
-        android:title="提交"
+        android:title="提交服务器"
         app:showAsAction="never"/>
-    <!--<item
-        android:id="@+id/turn"
-        android:orderInCategory="100"
-        android:title="测试界面跳转"
-        app:showAsAction="never"/>-->
 </menu>

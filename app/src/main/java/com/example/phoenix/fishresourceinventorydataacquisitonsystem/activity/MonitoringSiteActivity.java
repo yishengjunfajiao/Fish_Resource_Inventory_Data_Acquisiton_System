@@ -70,6 +70,8 @@ public class MonitoringSiteActivity extends AppCompatActivity
     private ImageView startLocate = null;
     //终点定位
     private ImageView endLocate = null;
+    //确认按钮
+    private com.rey.material.widget.Button ensure = null;
 
     private ArrayAdapter<String> provinceAdapter = null;
     private ArrayAdapter<String> cityAdapter = null;
@@ -154,6 +156,9 @@ public class MonitoringSiteActivity extends AppCompatActivity
         addPictureView.setOnClickListener(this);
         addPicture.addView(addPictureView);
 
+        ensure = (com.rey.material.widget.Button) findViewById(R.id.ensure);
+        ensure.setOnClickListener(this);
+
     }
 
     @Override
@@ -217,7 +222,7 @@ public class MonitoringSiteActivity extends AppCompatActivity
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.add_fra_surface:
-                startActivity(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class));
+                startActivityForResult(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class), ConstantData.INPUTMOREDATA);
                 break;
             case R.id.add_pic:
                 Toast.makeText(MonitoringSiteActivity.this, "添加图片", Toast.LENGTH_SHORT).show();
@@ -227,6 +232,10 @@ public class MonitoringSiteActivity extends AppCompatActivity
                 break;
             case R.id.img_end_location:
                 Toast.makeText(MonitoringSiteActivity.this, "终点定位", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.ensure:
+                //确认数据之前做一些提示
+
                 break;
         }
     }
@@ -247,6 +256,17 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ConstantData.INPUTMOREDATA){
+            if (resultCode == ConstantData.FRACTURESURFACE_SUCCESSFUL){     //新增断面成功
+
+            }
+        }
 
     }
 }

@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.ConstantData;
 
 /**
  * 维护 浮游动物 界面
@@ -27,6 +28,8 @@ public class ZooplanktonActivity extends AppCompatActivity implements View.OnCli
     private EditText biomass = null;
     //添加照片
     private GridLayout addPic = null;
+    //确认按钮
+    private com.rey.material.widget.Button ensure = null;
 
     private View addDominantSpeciesView = null;
     private View addPicView = null;
@@ -68,6 +71,9 @@ public class ZooplanktonActivity extends AppCompatActivity implements View.OnCli
         addPicView.setLayoutParams(params);
         addPicView.setOnClickListener(this);
         addPic.addView(addPicView);
+
+        ensure = (com.rey.material.widget.Button) findViewById(R.id.ensure);
+        ensure.setOnClickListener(this);
     }
 
     @Override
@@ -75,12 +81,31 @@ public class ZooplanktonActivity extends AppCompatActivity implements View.OnCli
         switch (v.getId()){
             case R.id.add_dom_spe:
 
-                startActivity(new Intent(ZooplanktonActivity.this,DominantSpeciesActivity.class));
+                startActivityForResult(new Intent(ZooplanktonActivity.this,
+                        DominantSpeciesActivity.class), ConstantData.INPUTMOREDATA);
                 break;
             case R.id.add_pic:
 
                 Toast.makeText(ZooplanktonActivity.this, "照片", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.ensure:
+                //确认数据之前做一些提示
+
+                Intent intent = getIntent();
+
+                setResult(ConstantData.ZOOPLANKTON_SUCCESSFUL,intent);
+                finish();
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ConstantData.INPUTMOREDATA){
+            if (resultCode == ConstantData.DOMINANTSPECIES_SUCCESSFUL){ //新增优势种成功
+
+            }
         }
     }
 

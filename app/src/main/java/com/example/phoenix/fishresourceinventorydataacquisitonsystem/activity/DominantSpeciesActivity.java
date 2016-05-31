@@ -1,5 +1,6 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.ConstantData;
 
 /**
  * 维护 优势种 界面
@@ -24,6 +26,8 @@ public class DominantSpeciesActivity extends AppCompatActivity implements View.O
     private EditText biomass = null;
     //添加照片
     private GridLayout addPic = null;
+    //确认按钮
+    private com.rey.material.widget.Button ensure = null;
 
     private View addPicView = null;
 
@@ -56,6 +60,9 @@ public class DominantSpeciesActivity extends AppCompatActivity implements View.O
         addPicView.setLayoutParams(params);
         addPicView.setOnClickListener(this);
         addPic.addView(addPicView);
+
+        ensure = (com.rey.material.widget.Button) findViewById(R.id.ensure);
+        ensure.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +71,14 @@ public class DominantSpeciesActivity extends AppCompatActivity implements View.O
             case R.id.add_pic:
 
                 Toast.makeText(DominantSpeciesActivity.this, "照片", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.ensure:
+                //确认数据之前做一些提示
+
+                Intent intent = getIntent();
+
+                setResult(ConstantData.DOMINANTSPECIES_SUCCESSFUL,intent);
+                finish();
                 break;
         }
     }
