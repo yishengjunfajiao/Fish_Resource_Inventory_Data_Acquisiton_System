@@ -26,11 +26,11 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.Co
 
 /**
  * 维护 监测点 界面
- * */
+ */
 public class MonitoringSiteActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         AdapterView.OnItemSelectedListener,
-        View.OnClickListener{
+        View.OnClickListener {
 
     //新增断面
     private GridLayout addFraSur = null;
@@ -94,24 +94,29 @@ public class MonitoringSiteActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this,
+                drawer,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+/*
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+*/
         init();
     }
 
-    private void init(){
+    private void init() {
         size = getWindowManager().getDefaultDisplay().getWidth();
-        params = new RelativeLayout.LayoutParams(size/5,size/5);
+        params = new RelativeLayout.LayoutParams(size / 5, size / 5);
 
         addFraSur = (GridLayout) findViewById(R.id.mon_site_add_fra_sur);
         addSurfaceView = LayoutInflater.from(MonitoringSiteActivity.this)
-                .inflate(R.layout.monitor_site_grid_add_fra_surface,null);
+                .inflate(R.layout.monitor_site_grid_add_fra_surface, null);
         addSurfaceView.setLayoutParams(params);
         addSurfaceView.setOnClickListener(this);
         addFraSur.addView(addSurfaceView);
@@ -129,7 +134,7 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
         city = (Spinner) findViewById(R.id.city);
         cityAdapter = new ArrayAdapter<>(MonitoringSiteActivity.this,
-                android.R.layout.simple_spinner_item,ConstantData.CITY[16]);
+                android.R.layout.simple_spinner_item, ConstantData.CITY[16]);
         city.setAdapter(cityAdapter);
         city.setOnItemSelectedListener(this);
 
@@ -151,7 +156,7 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
         addPicture = (GridLayout) findViewById(R.id.mon_site_add_pic);
         addPictureView = LayoutInflater.from(MonitoringSiteActivity.this)
-                .inflate(R.layout.grid_view_add_pic,null);
+                .inflate(R.layout.grid_view_add_pic, null);
         addPictureView.setLayoutParams(params);
         addPictureView.setOnClickListener(this);
         addPicture.addView(addPictureView);
@@ -166,22 +171,26 @@ public class MonitoringSiteActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if((System.currentTimeMillis() - current_time) > 2000){
+        } else if ((System.currentTimeMillis() - current_time) > 2000) {
             Toast.makeText(MonitoringSiteActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
             current_time = System.currentTimeMillis();
-        } else{
+        } else {
             finish();
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        /*
         getMenuInflater().inflate(R.menu.monitoring_site, menu);
+        */
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        /*
         int itemId = item.getItemId();
         if (itemId == R.id.data_share){
 
@@ -190,13 +199,16 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
             return true;
         }
+        */
         return super.onOptionsItemSelected(item);
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        /*
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
@@ -215,11 +227,14 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        */
         return true;
     }
 
+
     @Override
     public void onClick(View v) {
+        /*
         switch (v.getId()){
             case R.id.add_fra_surface:
                 startActivityForResult(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class), ConstantData.INPUTMOREDATA);
@@ -238,10 +253,12 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
                 break;
         }
+        */
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        /*
         switch (parent.getId()){
             case R.id.province:
                 cityAdapter = new ArrayAdapter<>(MonitoringSiteActivity.this,
@@ -252,6 +269,7 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
                 break;
         }
+        */
     }
 
     @Override
@@ -262,8 +280,8 @@ public class MonitoringSiteActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ConstantData.INPUTMOREDATA){
-            if (resultCode == ConstantData.FRACTURESURFACE_SUCCESSFUL){     //新增断面成功
+        if (requestCode == ConstantData.INPUTMOREDATA) {
+            if (resultCode == ConstantData.FRACTURESURFACE_SUCCESSFUL) {     //新增断面成功
 
             }
         }

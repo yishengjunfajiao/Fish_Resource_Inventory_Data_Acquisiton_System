@@ -13,12 +13,12 @@ public class CatchTools extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         return false;
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (node instanceof FishEggs || node instanceof Fishes) {
             return false;
         }

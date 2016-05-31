@@ -13,7 +13,7 @@ public class MeasuringPoint extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         if (node instanceof WaterLayer) {
             return true;
         }
@@ -21,7 +21,7 @@ public class MeasuringPoint extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (!(node instanceof WaterLayer) && !(node instanceof Catches) && !(node instanceof CatchTools)
                 && !(node instanceof Fishes) && !(node instanceof FishEggs)) {
             return true;

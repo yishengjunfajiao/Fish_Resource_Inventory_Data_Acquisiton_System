@@ -13,7 +13,7 @@ public class Catches extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         if (node instanceof FishEggs || node instanceof Fishes) {
             return true;
         }
@@ -21,7 +21,7 @@ public class Catches extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (!(node instanceof Fishes) && !(node instanceof FishEggs)) {
             return true;
         }

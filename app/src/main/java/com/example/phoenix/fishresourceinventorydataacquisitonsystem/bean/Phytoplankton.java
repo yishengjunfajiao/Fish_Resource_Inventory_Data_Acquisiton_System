@@ -8,7 +8,12 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.base.B
  */
 public class Phytoplankton extends BaseNode {
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public String toString() {
+        return "Phytoplankton";
+    }
+
+    @Override
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         if (node instanceof DominantPhytoplanktonSpecies) {
             return true;
         }
@@ -16,7 +21,7 @@ public class Phytoplankton extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (node instanceof Phytoplankton || node instanceof Zooplankton || node instanceof Sediment || node instanceof MeasuringLine
                 || node instanceof Benthos) {
             return true;

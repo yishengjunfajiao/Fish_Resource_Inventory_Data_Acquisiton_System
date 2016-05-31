@@ -13,7 +13,7 @@ public class FractureSurface extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         if (node instanceof MeasuringLine || node instanceof Sediment ||
                 node instanceof Zooplankton || node instanceof Phytoplankton || node instanceof Benthos) {
             return true;
@@ -22,7 +22,7 @@ public class FractureSurface extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (node instanceof FractureSurface || node instanceof MonitoringSite) {
             return true;
         }

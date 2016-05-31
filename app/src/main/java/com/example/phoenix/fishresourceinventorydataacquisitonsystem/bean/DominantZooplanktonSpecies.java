@@ -8,12 +8,12 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.base.B
  */
 public class DominantZooplanktonSpecies extends BaseNode {
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         return false;
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (node instanceof WaterLayer || node instanceof Catches || node instanceof CatchTools
                 || node instanceof Fishes || node instanceof FishEggs) {
             return false;

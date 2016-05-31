@@ -13,7 +13,7 @@ public class Benthos extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         if (node instanceof DominantBenthosSpecies) {
             return true;
         }
@@ -21,7 +21,7 @@ public class Benthos extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (node instanceof Phytoplankton || node instanceof Zooplankton || node instanceof Sediment || node instanceof MeasuringLine
                 || node instanceof Benthos) {
             return true;

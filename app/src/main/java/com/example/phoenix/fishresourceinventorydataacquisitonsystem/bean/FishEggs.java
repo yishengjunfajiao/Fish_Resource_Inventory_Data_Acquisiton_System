@@ -8,12 +8,12 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.base.B
  */
 public class FishEggs extends BaseNode {
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         return false;
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         return true;
     }
 }

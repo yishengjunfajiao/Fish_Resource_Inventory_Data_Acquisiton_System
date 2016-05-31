@@ -18,7 +18,7 @@ public class MonitoringSite extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInNextLevel(BaseNode node) {
+    public boolean isNodeTypeInNextLevel(BaseNode node) {
         if (node instanceof FractureSurface) {
             return true;
         }
@@ -26,7 +26,7 @@ public class MonitoringSite extends BaseNode {
     }
 
     @Override
-    protected boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
+    public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (node instanceof MonitoringSite) {
             return true;
         }
