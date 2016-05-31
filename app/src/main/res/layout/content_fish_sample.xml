@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.FishSampleActivity"
+    tools:showIn="@layout/activity_fish_sample">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/fish_layout1"
+        android:orientation="horizontal"
+
+        android:weightSum="2"
+        android:layout_marginTop="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/body_length"
+                android:layout_weight="1"
+                android:hint="体长"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/body_length"
+                android:text="mm"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/overall_length"
+                android:hint="全长"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/overall_length"
+                android:text="mm"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/fish_layout2"
+        android:layout_below="@+id/fish_layout1"
+        android:orientation="horizontal"
+
+        android:weightSum="2"
+        android:layout_marginTop="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/weight"
+                android:layout_weight="1"
+                android:hint="体重"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/weight"
+                android:text="g"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/age"
+                android:hint="年龄"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edittext_corner_shape"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cont_egg_add_pic"
+        android:layout_below="@id/fish_layout2"
+        android:columnCount="4"
+
+        android:padding="3dp">
+
+    </GridLayout>
+</RelativeLayout>
