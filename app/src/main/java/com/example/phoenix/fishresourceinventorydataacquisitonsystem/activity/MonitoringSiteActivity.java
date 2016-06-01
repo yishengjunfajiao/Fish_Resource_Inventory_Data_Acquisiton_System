@@ -17,19 +17,27 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.adapter.TreeList;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.adapter.TreeMenuAdapter;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.FishRoot;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.base.BaseNode;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.constant.ConstantData;
+
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 /**
  * 维护 监测点 界面
  */
 public class MonitoringSiteActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-        AdapterView.OnItemSelectedListener,
+        implements AdapterView.OnItemSelectedListener,
         View.OnClickListener {
 
     //新增断面
@@ -85,16 +93,41 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
     private static long current_time = 0;      //记录系统当前时间
 
+    //树形菜单组件，同时设置每一项的点击监听
+    @ViewInject(value = R.id.lv_tree_menu)
+    private ListView lv_tree_menu = null;
+    private TreeMenuAdapter treeAdapter = null;
+    private TreeList<BaseNode> treeData = null;
+
+    //设置ListView的点击监听，用于展开或者扩展节点
+    @Event(value = R.id.lv_tree_menu, type = AdapterView.OnItemClickListener.class)
+    private void openOrCloseMenu(AdapterView<?> parent, View view, int position, long id) {
+        if (treeAdapter != null) {
+            treeAdapter.onItemClick(position);
+        }
+    }
+
+    //设置ListView的长按监听，用于添加节点
+    @Event(value = R.id.lv_tree_menu, type = AdapterView.OnItemLongClickListener.class)
+    private boolean addNewNode(AdapterView<?> parent, View view, int position, long id) {
+
+        return true;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoring_site);
+        //enable xUtils
+        x.view().inject(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("监测点");
         setSupportActionBar(toolbar);
 
+        //初始化抽屉组件
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
+        //连接抽屉，并设置监听器,toggle是一个监听器，这个是可以自由选择是否添加监听
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,
                 drawer,
@@ -103,10 +136,6 @@ public class MonitoringSiteActivity extends AppCompatActivity
                 R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-/*
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-*/
         init();
     }
 
@@ -164,6 +193,15 @@ public class MonitoringSiteActivity extends AppCompatActivity
         ensure = (com.rey.material.widget.Button) findViewById(R.id.ensure);
         ensure.setOnClickListener(this);
 
+        initTreeMenu();
+
+    }
+
+    private void initTreeMenu() {
+        treeData = new TreeList<BaseNode>();
+        treeData.add(new FishRoot());
+        treeAdapter = new TreeMenuAdapter(this, treeData);
+        lv_tree_menu.setAdapter(treeAdapter);
     }
 
     @Override
@@ -180,62 +218,21 @@ public class MonitoringSiteActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        /*
-        getMenuInflater().inflate(R.menu.monitoring_site, menu);
-        */
-        return true;
-    }
-
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /*
         int itemId = item.getItemId();
-        if (itemId == R.id.data_share){
+        if (itemId == R.id.data_share) {
 
             return true;
-        }else if (itemId == R.id.data_submit){
+        } else if (itemId == R.id.data_submit) {
 
             return true;
         }
-        */
         return super.onOptionsItemSelected(item);
     }
 
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        /*
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        */
-        return true;
-    }
-
-
     @Override
     public void onClick(View v) {
-        /*
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.add_fra_surface:
                 startActivityForResult(new Intent(MonitoringSiteActivity.this, FractureSurfaceActivity.class), ConstantData.INPUTMOREDATA);
                 break;
@@ -253,23 +250,20 @@ public class MonitoringSiteActivity extends AppCompatActivity
 
                 break;
         }
-        */
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        /*
-        switch (parent.getId()){
+        switch (parent.getId()) {
             case R.id.province:
                 cityAdapter = new ArrayAdapter<>(MonitoringSiteActivity.this,
-                        android.R.layout.simple_spinner_item,ConstantData.CITY[position]);
+                        android.R.layout.simple_spinner_item, ConstantData.CITY[position]);
                 city.setAdapter(cityAdapter);
                 break;
             case R.id.city:
 
                 break;
         }
-        */
     }
 
     @Override

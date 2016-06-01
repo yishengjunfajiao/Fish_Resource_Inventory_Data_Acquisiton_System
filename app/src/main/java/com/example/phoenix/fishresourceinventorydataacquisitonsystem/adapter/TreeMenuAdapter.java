@@ -14,6 +14,7 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.Domina
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.DominantPhytoplanktonSpecies;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.DominantZooplanktonSpecies;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.FishEggs;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.FishRoot;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.Fishes;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.FractureSurface;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.MeasuringLine;
@@ -90,6 +91,8 @@ public class TreeMenuAdapter extends BaseAdapter {
             inflate = View.inflate(context, R.layout.item_water_layer, null);
         } else if (node instanceof Zooplankton) {
             inflate = View.inflate(context, R.layout.item_water_layer, null);
+        } else if (node instanceof FishRoot) {
+            inflate = View.inflate(context, R.layout.item_tree_menu_root, null);
         }
         TextView tv = (TextView) inflate.findViewById(R.id.tv);
         tv.setText(node.toString());

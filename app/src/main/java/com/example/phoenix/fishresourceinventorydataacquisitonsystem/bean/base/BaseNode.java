@@ -40,4 +40,6 @@ public abstract class BaseNode {
     public void hide() {
         this.isShown = false;
     }
+
+
 }

@@ -20,7 +20,7 @@ public class Zooplankton extends BaseNode {
         if (node instanceof Phytoplankton || node instanceof Zooplankton || node instanceof Sediment || node instanceof MeasuringLine
                 || node instanceof Benthos) {
             return true;
-        } else if (node instanceof MonitoringSite || node instanceof FractureSurface) {
+        } else if (node instanceof MonitoringSite || node instanceof FractureSurface || node instanceof FishRoot) {
             return true;
         }
         return false;

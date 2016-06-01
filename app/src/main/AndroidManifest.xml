@@ -3,6 +3,7 @@
     package="com.example.phoenix.fishresourceinventorydataacquisitonsystem">
 
     <application
+        android:name=".FishApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

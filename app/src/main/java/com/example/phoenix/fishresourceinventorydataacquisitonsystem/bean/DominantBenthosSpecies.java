@@ -15,7 +15,7 @@ public class DominantBenthosSpecies extends BaseNode {
     @Override
     public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
         if (node instanceof WaterLayer || node instanceof Catches || node instanceof CatchTools
-                || node instanceof Fishes || node instanceof FishEggs) {
+                || node instanceof Fishes || node instanceof FishEggs || node instanceof FishRoot) {
             return false;
         }
         return true;

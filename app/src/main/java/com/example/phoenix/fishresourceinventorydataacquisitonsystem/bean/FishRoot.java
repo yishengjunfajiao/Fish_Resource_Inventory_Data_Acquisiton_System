@@ -1,25 +1,25 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean;
 
-
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.base.BaseNode;
 
 /**
- * Created by Phoenix on 2016/5/31.
+ * Created by Phoenix on 2016/6/1.
  */
-public class MonitoringSite extends BaseNode {
-    @Override
-    public String toString() {
-        return "MonitoringSite";
+public class FishRoot extends BaseNode {
+
+    public FishRoot() {
+        super();
+        this.show();
     }
 
-    public MonitoringSite() {
-        super();
-        this.isShown = true;
+    @Override
+    public String toString() {
+        return "root";
     }
 
     @Override
     public boolean isNodeTypeInNextLevel(BaseNode node) {
-        if (node instanceof FractureSurface) {
+        if (node instanceof MonitoringSite) {
             return true;
         }
         return false;
@@ -27,9 +27,6 @@ public class MonitoringSite extends BaseNode {
 
     @Override
     public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
-        if (node instanceof MonitoringSite || node instanceof FishRoot) {
-            return true;
-        }
         return false;
     }
 }

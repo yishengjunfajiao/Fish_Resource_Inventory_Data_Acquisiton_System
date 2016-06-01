@@ -22,9 +22,22 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_monitoring_site" />
         -->
-    <TextView
-        android:gravity="center"
-        android:text="hello"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <!--
+        <TextView
+            android:id="@+id/tv_add_monitor_size"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:padding="10dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/add_monitor_site"
+            android:layout_width="@dimen/drawer_width"
+            android:layout_height="wrap_content" />
+-->
+        <ListView
+            android:id="@+id/lv_tree_menu"
+            android:layout_width="@dimen/drawer_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#FFFFFF"
+            android:gravity="center" />
 </android.support.v4.widget.DrawerLayout>

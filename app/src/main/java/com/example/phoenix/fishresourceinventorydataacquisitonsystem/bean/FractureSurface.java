@@ -23,7 +23,7 @@ public class FractureSurface extends BaseNode {
 
     @Override
     public boolean isNodeTypeInParallelOrHigherLevel(BaseNode node) {
-        if (node instanceof FractureSurface || node instanceof MonitoringSite) {
+        if (node instanceof FractureSurface || node instanceof MonitoringSite || node instanceof FishRoot) {
             return true;
         }
         return false;
