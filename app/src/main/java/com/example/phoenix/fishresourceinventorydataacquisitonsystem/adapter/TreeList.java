@@ -2,7 +2,9 @@ package com.example.phoenix.fishresourceinventorydataacquisitonsystem.adapter;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.bean.base.BaseNode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Phoenix on 2016/5/31.
@@ -12,10 +14,13 @@ public class TreeList<T extends BaseNode> {
     private LinkedList<T> treeList;
     //将所有可以在界面上显示的节点按照树的先序遍历存储
     private LinkedList<T> showList;
+    //保存所有可以在界面上显示的节点在treeList中的下标
+    private List<Integer> showNodeIndex;
 
     public TreeList() {
         treeList = new LinkedList<T>();
         showList = new LinkedList<T>();
+        showNodeIndex = new ArrayList<Integer>();
     }
 
     public void updateShowListIndex() {
@@ -24,9 +29,15 @@ public class TreeList<T extends BaseNode> {
         } else {
             showList.clear();
         }
+        if (showNodeIndex == null) {
+            showNodeIndex = new ArrayList<>();
+        } else {
+            showNodeIndex.clear();
+        }
         for (T t : treeList) {
             if (t.isShown()) {
                 showList.add(t);
+                showNodeIndex.add(treeList.indexOf(t));
             }
         }
     }
@@ -108,6 +119,10 @@ public class TreeList<T extends BaseNode> {
 
     public T getItemInShownList(int index) {
         return showList.get(index);
+    }
+
+    public int getNodeIndexInTreeList(int position) {
+        return showNodeIndex.get(position);
     }
 
     public String getShownItemText(int index) {

@@ -20,4 +20,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_dominant_species">DominantSpeciesActivity</string>
     <string name="add_monitor_site">添加监测点</string>
+    <string name="choose_added_item">选择要添加的数据</string>
+    <string name="new_node">新节点</string>
+    <string name="ok">确定</string>
 </resources>
