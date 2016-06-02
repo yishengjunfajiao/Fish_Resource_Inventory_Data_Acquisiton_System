@@ -70,4 +70,6 @@ public class ConstantData {
     public static final int FISHSAMPLE_SUCCESSFUL = 12;
     public static final int EGGSAMPLE_SUCCESSFUL = 13;
     public static final int DOMINANTSPECIES_SUCCESSFUL = 14;
+
+    public static final String[] TITLE = {"我的任务","分配任务"};
 }

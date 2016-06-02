@@ -1,0 +1,26 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.SedimentFragment">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sediment_add_pic"
+        android:columnCount="4">
+
+    </GridLayout>
+    <include
+        layout="@layout/ensure_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sediment_add_pic"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"/>
+
+</RelativeLayout>

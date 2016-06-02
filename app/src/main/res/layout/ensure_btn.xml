@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ensure"
-        android:text="确认"
+        android:text="确定"
         android:textColor="#ffffff"
         app:rd_enable="true"
         app:rd_rippleColor="#03A9F4"

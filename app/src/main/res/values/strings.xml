@@ -23,4 +23,9 @@
     <string name="choose_added_item">选择要添加的数据</string>
     <string name="new_node">新节点</string>
     <string name="ok">确定</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">具体界面待定</string>
+
 </resources>
