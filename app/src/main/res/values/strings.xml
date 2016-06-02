@@ -20,4 +20,8 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_dominant_species">DominantSpeciesActivity</string>
     <string name="add_monitor_site">添加监测点</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">具体界面待定</string>
 </resources>

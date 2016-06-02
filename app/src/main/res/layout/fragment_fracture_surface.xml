@@ -1,0 +1,106 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.FractureSurfaceFragment">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fra_sur_add_mea_line"
+        android:columnCount="4">
+
+    </GridLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/lay1"
+        android:layout_below="@id/fra_sur_add_mea_line"
+        android:layout_marginTop="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/edittext_corner_shape" >
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sampling_position" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/distance_from_shore"
+                android:singleLine="true"
+                android:hint=" 距岸距离"
+                android:background="@drawable/edittext_corner_shape" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/distance_from_shore"
+                android:text="m"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fra_sur_add_sediment"
+        android:layout_below="@id/lay1"
+        android:columnCount="4"
+        android:layout_marginTop="10dp"
+        android:padding="3dp">
+
+    </GridLayout><!-- 沉积物-->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fra_sur_add_zooplankton"
+        android:layout_below="@id/fra_sur_add_sediment"
+        android:columnCount="4"
+        android:layout_marginTop="10dp"
+        android:padding="3dp">
+
+    </GridLayout><!-- 浮游动物-->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fra_sur_add_phytoplankton"
+        android:layout_below="@id/fra_sur_add_zooplankton"
+        android:columnCount="4"
+        android:layout_marginTop="10dp"
+        android:padding="3dp">
+
+    </GridLayout><!-- 浮游植物-->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fra_sur_add_benthic_organism"
+        android:layout_below="@id/fra_sur_add_phytoplankton"
+        android:columnCount="4"
+        android:layout_marginTop="10dp"
+        android:padding="3dp">
+
+    </GridLayout><!-- 底栖生物-->
+
+    <include
+        layout="@layout/ensure_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fra_sur_add_benthic_organism"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"/>
+
+</RelativeLayout>
