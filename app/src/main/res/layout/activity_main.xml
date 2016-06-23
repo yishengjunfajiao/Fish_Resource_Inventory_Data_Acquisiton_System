@@ -16,42 +16,53 @@
     <LinearLayout
         android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        >
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@drawable/side_nav_bar">
 
-            <com.thinkcool.circletextimageview.CircleTextImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <com.thinkcool.circletextimageview.CircleTextImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/head_image"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/x"
-                app:citv_border_width="2dp"
-                app:citv_border_color="#ffffff"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"/>
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/x"
+                app:citv_border_color="#ffffff"
+                app:citv_border_width="2dp" />
+
             <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/name"
-                android:text="未登录"
-                android:textColor="#ffffff"
-                android:layout_toRightOf="@id/head_image"
-                android:layout_marginLeft="10dp"
                 android:layout_alignTop="@id/head_image"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/head_image"
+                android:text="未登录"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/add_monitor_site"
+                android:textColor="#ffffff"
+                android:text="@string/add_monitor_site"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"/>
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
             <ListView
                 android:id="@+id/lv_tree_menu"
                 android:layout_width="match_parent"
@@ -59,14 +70,17 @@
                 android:background="#FFFFFF"
                 android:gravity="center" />
         </RelativeLayout>
+
         <View
             android:layout_width="wrap_content"
             android:layout_height="0.5dp"
-            android:background="#bdbdbd"/>
+            android:background="#bdbdbd" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2">
+
             <android.support.design.widget.NavigationView
                 android:id="@+id/nav_view"
                 android:layout_width="match_parent"

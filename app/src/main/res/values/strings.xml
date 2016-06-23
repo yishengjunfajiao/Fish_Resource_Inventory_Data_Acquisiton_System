@@ -1,4 +1,4 @@
-<resources>
+ <resources>
     <string name="app_name">"FRIDAS"</string>
     <string name="title_activity_monitoring_site">MonitoringSiteActivity</string>
     <string name="title_activity_fracture_surface">FractureSurfaceActivity</string>

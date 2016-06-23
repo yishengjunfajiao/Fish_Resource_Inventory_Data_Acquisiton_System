@@ -7,12 +7,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by Phoenix on 2016/5/31.
  */
-public class JerryDBOpenHelper extends SQLiteOpenHelper {
+public class DBOpenHelper extends SQLiteOpenHelper {
 
     public final static String DB_NAME = "MouseJerry";
     public final static int DB_VERSION = 1;
 
-    public JerryDBOpenHelper(Context context) {
+    public DBOpenHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
