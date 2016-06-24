@@ -19,6 +19,14 @@ public class Sediment extends BaseNode {
         return Photo;
     }
 
+    public void setSampleID(String sampleID) {
+        SampleID = sampleID;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
+    }
+
     private String SampleID;
     private String Photo;
 

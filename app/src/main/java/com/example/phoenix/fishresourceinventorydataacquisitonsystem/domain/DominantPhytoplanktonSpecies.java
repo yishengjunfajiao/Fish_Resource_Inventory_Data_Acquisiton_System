@@ -9,6 +9,30 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  * Created by Phoenix on 2016/5/31.
  */
 public class DominantPhytoplanktonSpecies extends BaseNode {
+    public void setSampleID(String sampleID) {
+        SampleID = sampleID;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
+    }
+
+    public void setQuality(float quality) {
+        Quality = quality;
+    }
+
+    public void setBiomass(float biomass) {
+        Biomass = biomass;
+    }
+
+    public void setID_Phytoplankton(String ID_Phytoplankton) {
+        this.ID_Phytoplankton = ID_Phytoplankton;
+    }
+
     private String SampleID;
     private String Name;
     private String Photo;

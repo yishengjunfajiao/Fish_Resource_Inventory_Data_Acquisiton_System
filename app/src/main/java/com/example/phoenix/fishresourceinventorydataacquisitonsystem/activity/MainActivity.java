@@ -1,5 +1,6 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity;
 
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -18,8 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
-import com.example.phoenix.fishresourceinventorydataacquisitonsystem.menu.MenuAdapter;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuAdapter;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.DialogUtils;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.MenuUtils;
 
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -33,10 +35,9 @@ public class MainActivity extends AppCompatActivity
         View.OnClickListener {
 
     public Toolbar toolbar = null;
-
     private MenuAdapter menuAdapter;
+    private FragmentManager fragmentManager = null;
 
-    private FragmentTransaction transaction = null;
     //记录系统当前时间
     private static long current_time = 0;      //记录系统当前时间
 
@@ -52,18 +53,19 @@ public class MainActivity extends AppCompatActivity
     private void openOrCloseMenu(AdapterView<?> parent, View view, int position, long id) {
         menuAdapter.changeNodeStatus(position);
         menuAdapter.notifyDataSetChanged();
+        MenuUtils.showNodeInfo(fragmentManager, menuAdapter, position);
     }
 
     @Event(value = R.id.add_monitor_site, type = View.OnClickListener.class)
-    private void addaddMonitorSite(View view) throws Exception {
-        DialogUtils.showAddNodeDialog(MainActivity.this, MainActivity.this.menuAdapter, -1);
+    private void addMonitorSite(View view) throws Exception {
+        DialogUtils.showAddNodeDialog(fragmentManager, MainActivity.this, MainActivity.this.menuAdapter, -1);
     }
 
     //设置ListView的长按监听，用于添加节点
     @Event(value = R.id.lv_tree_menu, type = AdapterView.OnItemLongClickListener.class)
     private boolean addNewNode(AdapterView<?> parent, View view, int position, long id) {
         try {
-            DialogUtils.showAddNodeDialog(MainActivity.this, MainActivity.this.menuAdapter, position);
+            DialogUtils.showAddNodeDialog(fragmentManager, MainActivity.this, MainActivity.this.menuAdapter, position);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void init() {
+        fragmentManager = getFragmentManager();
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("FRIDAS");
         setSupportActionBar(toolbar);
@@ -99,8 +102,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        transaction = getFragmentManager().beginTransaction();
 
         headImag = (com.thinkcool.circletextimageview.CircleTextImageView) findViewById(R.id.head_image);
         headImag.setOnClickListener(this);

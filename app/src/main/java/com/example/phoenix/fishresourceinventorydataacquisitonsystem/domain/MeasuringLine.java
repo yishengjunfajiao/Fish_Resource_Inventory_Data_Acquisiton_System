@@ -10,6 +10,31 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class MeasuringLine extends BaseNode {
     private String ID;
+
+    public void setStartLongitude(float startLongitude) {
+        StartLongitude = startLongitude;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setStartLatitude(float startLatitude) {
+        StartLatitude = startLatitude;
+    }
+
+    public void setEndLongitude(float endLongitude) {
+        EndLongitude = endLongitude;
+    }
+
+    public void setEndLatitude(float endLatitude) {
+        EndLatitude = endLatitude;
+    }
+
+    public void setID_FractureSurface(String ID_FractureSurface) {
+        this.ID_FractureSurface = ID_FractureSurface;
+    }
+
     private float StartLongitude;
     private float StartLatitude;
     private float EndLongitude;

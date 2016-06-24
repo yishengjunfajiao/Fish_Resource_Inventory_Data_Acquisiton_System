@@ -10,6 +10,23 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class MeasuringPoint extends BaseNode {
     public String ID;
+
+    public void setLongitude(float longitude) {
+        Longitude = longitude;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setLatitude(float latitude) {
+        Latitude = latitude;
+    }
+
+    public void setID_MeasuringLine(String ID_MeasuringLine) {
+        this.ID_MeasuringLine = ID_MeasuringLine;
+    }
+
     public float Longitude;
     public float Latitude;
     public String ID_MeasuringLine;

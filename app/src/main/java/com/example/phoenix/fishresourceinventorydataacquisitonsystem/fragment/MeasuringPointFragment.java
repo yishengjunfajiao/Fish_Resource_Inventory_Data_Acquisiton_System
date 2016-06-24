@@ -17,7 +17,7 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 /**
  * 维护 测点 界面
  * */
-public class MeasuringSiteFragment extends Fragment implements View.OnClickListener{
+public class MeasuringPointFragment extends Fragment implements View.OnClickListener{
     //经度
     private EditText longitude = null;
     //纬度
@@ -35,7 +35,7 @@ public class MeasuringSiteFragment extends Fragment implements View.OnClickListe
     private int size;
     private RelativeLayout.LayoutParams params = null;
 
-    public MeasuringSiteFragment() {
+    public MeasuringPointFragment() {
         // Required empty public constructor
     }
 
@@ -43,7 +43,7 @@ public class MeasuringSiteFragment extends Fragment implements View.OnClickListe
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_measuring_site, container, false);
+        View view = inflater.inflate(R.layout.fragment_measuring_point, container, false);
         init(view);
         return view;
     }

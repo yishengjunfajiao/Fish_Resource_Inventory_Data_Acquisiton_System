@@ -9,6 +9,42 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  * Created by Phoenix on 2016/5/31.
  */
 public class CatchTools extends BaseNode {
+    public void setSampleID(String sampleID) {
+        SampleID = sampleID;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
+    }
+
+    public void setNetsModel(String netsModel) {
+        NetsModel = netsModel;
+    }
+
+    public void setNetMouthArea(float netMouthArea) {
+        NetMouthArea = netMouthArea;
+    }
+
+    public void setNetMouthDip(float netMouthDip) {
+        NetMouthDip = netMouthDip;
+    }
+
+    public void setStartTime(String startTime) {
+        StartTime = startTime;
+    }
+
+    public void setEndTime(String endTime) {
+        EndTime = endTime;
+    }
+
+    public void setNetMouthVelocity(float netMouthVelocity) {
+        NetMouthVelocity = netMouthVelocity;
+    }
+
     //CatchTools主键
     private String SampleID;
     //网具名字

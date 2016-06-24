@@ -6,7 +6,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-    tools:context="com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.MeasuringSiteFragment">
+    tools:context=".fragment.MeasuringPointFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

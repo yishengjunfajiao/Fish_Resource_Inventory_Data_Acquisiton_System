@@ -10,6 +10,34 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.base
  */
 public class Catches extends BaseNode {
 
+    public void setSampleID(String sampleID) {
+        SampleID = sampleID;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
+    }
+
+    public void setTotalQuality(int totalQuality) {
+        TotalQuality = totalQuality;
+    }
+
+    public void setEggQuality(int eggQuality) {
+        EggQuality = eggQuality;
+    }
+
+    public void setFryQuality(int fryQuality) {
+        FryQuality = fryQuality;
+    }
+
+    public void setID_WaterLayer(String ID_WaterLayer) {
+        this.ID_WaterLayer = ID_WaterLayer;
+    }
+
     //主键
     private String SampleID = null;
     //鱼类名称

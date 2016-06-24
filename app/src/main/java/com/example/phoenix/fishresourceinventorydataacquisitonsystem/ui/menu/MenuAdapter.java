@@ -1,5 +1,7 @@
-package com.example.phoenix.fishresourceinventorydataacquisitonsystem.menu;
+package com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,6 +114,18 @@ public class MenuAdapter extends BaseAdapter {
             list.close(position);
         } else {
             list.open(position);
+        }
+    }
+
+    public void showNodeInfo(int position, FragmentTransaction transaction) {
+        for (TreeNode t : list.getTotalList()) {
+            if (t.getFragment() != null) {
+                transaction.hide(t.getFragment());
+            }
+        }
+        Fragment f = list.getShownList().get(position).getFragment();
+        if (f != null) {
+            transaction.show(f);
         }
     }
 }

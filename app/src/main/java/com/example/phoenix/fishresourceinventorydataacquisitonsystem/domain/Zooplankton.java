@@ -10,6 +10,26 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class Zooplankton extends BaseNode {
 
+    public void setSampleID(String sampleID) {
+        SampleID = sampleID;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
+    }
+
+    public void setQuality(float quality) {
+        Quality = quality;
+    }
+
+    public void setBiomass(float biomass) {
+        Biomass = biomass;
+    }
+
+    public void setID_FractureSurface(String ID_FractureSurface) {
+        this.ID_FractureSurface = ID_FractureSurface;
+    }
+
     private String SampleID;
     private String Photo;
     private float Quality;

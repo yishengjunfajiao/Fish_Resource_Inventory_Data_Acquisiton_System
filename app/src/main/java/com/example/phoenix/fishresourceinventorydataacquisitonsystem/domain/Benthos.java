@@ -21,6 +21,27 @@ public class Benthos extends BaseNode {
     //断面外键
     private String ID_FractureSurface = null;
 
+    public void setSampleID(String sampleID) {
+        SampleID = sampleID;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
+    }
+
+    public void setQuality(int quality) {
+        Quality = quality;
+    }
+
+    public void setBiomass(int biomass) {
+        Biomass = biomass;
+    }
+
+    public void setID_FractureSurface(String ID_FractureSurface) {
+        this.ID_FractureSurface = ID_FractureSurface;
+    }
+
+
     public String getSampleID() {
         return SampleID;
     }

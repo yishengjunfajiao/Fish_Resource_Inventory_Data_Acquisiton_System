@@ -15,8 +15,8 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 
 /**
  * 维护 网具 界面
- * */
-public class NettingGearFragment extends Fragment implements View.OnClickListener{
+ */
+public class NettingGearFragment extends Fragment implements View.OnClickListener {
     //名称
     private EditText name = null;
     //网型
@@ -55,9 +55,9 @@ public class NettingGearFragment extends Fragment implements View.OnClickListene
         return view;
     }
 
-    private void init(View view){
+    private void init(View view) {
         size = getActivity().getWindowManager().getDefaultDisplay().getWidth();
-        params = new RelativeLayout.LayoutParams(size/5,size/5);
+        params = new RelativeLayout.LayoutParams(size / 5, size / 5);
 
         name = (EditText) view.findViewById(R.id.net_name);
         type = (EditText) view.findViewById(R.id.net_type);
@@ -69,7 +69,7 @@ public class NettingGearFragment extends Fragment implements View.OnClickListene
 
         addPic = (GridLayout) view.findViewById(R.id.cont_net_add_pic);
         addPicView = LayoutInflater.from(getActivity())
-                .inflate(R.layout.grid_view_add_pic,null);
+                .inflate(R.layout.grid_view_add_pic, null);
         addPicView.setLayoutParams(params);
         addPicView.setOnClickListener(this);
         addPic.addView(addPicView);
@@ -81,7 +81,7 @@ public class NettingGearFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.add_pic:
 
                 Toast.makeText(getActivity(), "照片", Toast.LENGTH_SHORT).show();

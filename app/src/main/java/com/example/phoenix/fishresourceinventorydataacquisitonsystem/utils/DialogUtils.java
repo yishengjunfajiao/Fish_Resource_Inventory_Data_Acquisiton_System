@@ -1,5 +1,7 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -28,8 +30,22 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Sedi
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.WaterLayer;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Zooplankton;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.base.BaseNode;
-import com.example.phoenix.fishresourceinventorydataacquisitonsystem.menu.MenuAdapter;
-import com.example.phoenix.fishresourceinventorydataacquisitonsystem.menu.TreeNode;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.BenthicOrganismFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.CatchFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.DominantSpeciesFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.EggSampleFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.FishSampleFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.FractureSurfaceFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.MeasuringLineFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.MeasuringPointFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.MonitoringSiteFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.NettingGearFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.PhytoplanktonFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.SedimentFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.WaterCourseFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.ZooplanktonFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuAdapter;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +54,7 @@ import java.util.List;
  * Created by Phoenix on 2016/6/23.
  */
 public class DialogUtils {
-    public static void showAddNodeDialog(Context context, final MenuAdapter menuAdapter, final int position) throws Exception {
+    public static void showAddNodeDialog(final FragmentManager fragmentManager, Context context, final MenuAdapter menuAdapter, final int position) throws Exception {
         //获取被长按的节点，得到能够新添加节点的种类
         List<String> avaliable_node = getAvaliableNode(menuAdapter, position);
         if (avaliable_node == null) {
@@ -67,55 +83,71 @@ public class DialogUtils {
                 int id = rg.getCheckedRadioButtonId();
                 Log.e("onclick", String.valueOf(id));
                 BaseNode node = null;
+                Fragment fragment = null;
                 switch (id) {
                     case TableIds.BENTHOS:
                         node = new Benthos();
+                        fragment = new BenthicOrganismFragment();
                         break;
                     case TableIds.CATCH_TOOLS:
                         node = new CatchTools();
+                        fragment = new NettingGearFragment();
                         break;
                     case TableIds.CATCHES:
                         node = new Catches();
+                        fragment = new CatchFragment();
                         break;
                     case TableIds.DOMINANT_BENTHOS_SPECIES:
                         node = new DominantBenthosSpecies();
+                        fragment = new DominantSpeciesFragment();
                         break;
                     case TableIds.DOMINANT_PHYTOPLANKTON_SPECIES:
                         node = new DominantPhytoplanktonSpecies();
+                        fragment = new DominantSpeciesFragment();
                         break;
                     case TableIds.DOMINANT_ZOOPLANKTON_SPECIES:
                         node = new DominantZooplanktonSpecies();
+                        fragment = new DominantSpeciesFragment();
                         break;
                     case TableIds.FISH_EGGS:
                         node = new FishEggs();
+                        fragment = new EggSampleFragment();
                         break;
                     case TableIds.FISHES:
                         node = new Fishes();
+                        fragment = new FishSampleFragment();
                         break;
                     case TableIds.FRACTURE_SURFACE:
                         node = new FractureSurface();
+                        fragment = new FractureSurfaceFragment();
                         break;
                     case TableIds.MEASURING_LINE:
                         node = new MeasuringLine();
+                        fragment = new MeasuringLineFragment();
                         break;
                     case TableIds.MEASURING_POINT:
                         node = new MeasuringPoint();
+                        fragment = new MeasuringPointFragment();
                         break;
                     case TableIds.MONITORING_SITE:
                         node = new MonitoringSite();
+                        fragment = new MonitoringSiteFragment();
                         break;
                     case TableIds.PHYTOPLANKTON:
                         node = new Phytoplankton();
+                        fragment = new PhytoplanktonFragment();
                         break;
                     case TableIds.SEDIMENT:
                         node = new Sediment();
+                        fragment = new SedimentFragment();
                         break;
                     case TableIds.WATER_LAYER:
                         node = new WaterLayer();
-                        Log.e("test",node.toString());
+                        fragment = new WaterCourseFragment();
                         break;
                     case TableIds.ZOOPLANKTON:
                         node = new Zooplankton();
+                        fragment = new ZooplanktonFragment();
                         break;
                     default:
                         node = null;
@@ -124,8 +156,15 @@ public class DialogUtils {
 
                 if (node != null) {
                     TreeNode t = new TreeNode(node);
+                    t.setFragment(fragment);
+                    fragmentManager.beginTransaction().add(R.id.app_main_content, fragment).commit();
                     menuAdapter.addNode(t, position);
                     menuAdapter.notifyDataSetChanged();
+                    if (position == -1) {
+                        MenuUtils.showNodeInfo(fragmentManager, menuAdapter, 0);
+                    } else {
+                        MenuUtils.showNodeInfo(fragmentManager, menuAdapter, position);
+                    }
                 }
                 dialog.dismiss();
             }

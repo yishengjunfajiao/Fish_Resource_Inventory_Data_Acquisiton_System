@@ -1,4 +1,4 @@
-package com.example.phoenix.fishresourceinventorydataacquisitonsystem.menu;
+package com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,13 +13,6 @@ public enum MenuList {
     private static LinkedList<TreeNode> totalList = new LinkedList<>();
     private static LinkedList<TreeNode> shownList = new LinkedList<>();
 
-    /*
-    public MenuList() {
-        totalList = new LinkedList<TreeNode>();
-        shownList = new LinkedList<TreeNode>();
-    }
-*/
-
     /**
      * 返回状态为shown的节点
      *
@@ -28,6 +21,11 @@ public enum MenuList {
     public List<TreeNode> getShownList() {
         return shownList;
     }
+
+    public List<TreeNode> getTotalList() {
+        return totalList;
+    }
+
 
     public void updateNodes() {
         if (shownList == null) {

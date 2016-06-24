@@ -11,6 +11,30 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class DominantBenthosSpecies extends BaseNode {
 
+    public void setSampleID(String sampleID) {
+        SampleID = sampleID;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
+    }
+
+    public void setQuality(float quality) {
+        Quality = quality;
+    }
+
+    public void setBiomass(float biomass) {
+        Biomass = biomass;
+    }
+
+    public void setID_Benthos(String ID_Benthos) {
+        this.ID_Benthos = ID_Benthos;
+    }
+
     private String SampleID;
     private String Name;
     private String Photo;
