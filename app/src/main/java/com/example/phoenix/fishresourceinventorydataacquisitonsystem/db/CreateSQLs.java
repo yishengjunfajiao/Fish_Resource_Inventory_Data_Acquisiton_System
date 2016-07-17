@@ -5,6 +5,220 @@ package com.example.phoenix.fishresourceinventorydataacquisitonsystem.db;
  */
 public class CreateSQLs {
 
+    public final static String ACCOUNT = new StringBuffer()
+            .append("CREATE TABLE Account(")
+            .append("id int NOT NULL IDENTITY(1,1) PRIMARY KEY ,")
+            .append("username nvarchar(50)  NOT NULL ,")
+            .append("passwold nvarchar(20)  NOT NULL ,")
+            .append("Telephone nvarchar(20) ,")
+            .append("Email nvarchar(100) ,")
+            .append("Description nvarchar(200) ,")
+            .append("active nvarchar(3) ,")
+            .append("superiorName nvarchar(50) NOT NULL ,")
+            .append("roleName nvarchar(20)")
+            .append(")").toString();
+
+    public static final String MONITORING_SITE = new StringBuffer()
+            .append("CREATE TABLE MonitoringSite (")
+            .append("InverstigationID VARCHAR(17) PRIMARY KEY,")
+            .append("Institution VARCHAR(60) NOT NULL,")
+            .append("Investigator     VARCHAR(40) NOT NULL,")
+            .append("InvestigationDate SMALLDATETIME NOT NULL,")
+            .append("Site VARCHAR(200) NOT NULL,")
+            .append("River VARCHAR(20) NOT NULL,")
+            .append("Photo TEXT,")
+            .append("StartTime SMALLDATETIME,")
+            .append("EndTime SMALLDATETIME,")
+            .append("StartLongitude NUMERIC(13,9),")
+            .append("StartLatitude NUMERIC(13,9),")
+            .append("EndLongitude NUMERIC(13,9),")
+            .append("EndLatitude NUMERIC(13,9),")
+            .append("Weather VARCHAR(4),")
+            .append("Temperature NUMERIC(4,2),")
+            .append("user_id int,")
+            .append("FOREIGN KEY (user_id) REFERENCES Account(id) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String FRACTURE_SURFACE = new StringBuffer()
+            .append("CREATE TABLE FractureSurface (")
+            .append("ID VARCHAR(17) PRIMARY KEY,")
+            .append("Position VARCHAR(4) NOT NULL,")
+            .append("Distance2Bank NUMERIC(10),")
+            .append("ID_MonitoringSite VARCHAR(17),")
+            .append("FOREIGN KEY (ID_MonitoringSite) REFERENCES MonitoringSite(InverstigationID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String PHYTOPLANKTON = new StringBuffer()
+            .append("CREATE TABLE Phytoplankton(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Photo TEXT,")
+            .append("Quality NUMERIC(10),")
+            .append("Biomass NUMERIC(5,1),")
+            .append("ID_FractureSurface VARCHAR(17),")
+            .append("FOREIGN KEY (ID_FractureSurface) REFERENCES FractureSurface(ID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String ZOOPLANKTON = new StringBuffer()
+            .append("CREATE TABLE Zooplankton (")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Photo TEXT,")
+            .append("Quality NUMERIC(10),")
+            .append("Biomass NUMERIC(10),")
+            .append("ID_FractureSurface VARCHAR(17),")
+            .append("FOREIGN KEY (ID_FractureSurface) REFERENCES FractureSurface(ID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String BENTHOS = new StringBuffer()
+            .append("CREATE TABLE Benthos (")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Photo TEXT,")
+            .append("Quality NUMERIC(10),")
+            .append("Biomass NUMERIC(10),")
+            .append("ID_FractureSurface VARCHAR(17),")
+            .append("FOREIGN KEY (ID_FractureSurface) REFERENCES FractureSurface(ID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String DOMINANT_PHYTOPLANKTON_SPECIES = new StringBuffer()
+            .append("CREATE TABLE DominantPhytoplanktonSpecies(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Name VARCHAR(30),")
+            .append("Photo TEXT,")
+            .append("Quality NUMERIC(10),")
+            .append("Biomass NUMERIC(5,1),")
+            .append("ID_Phytoplankton VARCHAR(17),")
+            .append("FOREIGN KEY (ID_Phytoplankton) REFERENCES Phytoplankton(SampleID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String DOMINANT_ZOOPLANKTON_SPECIES = new StringBuffer()
+            .append("CREATE TABLE DominantZooplanktonSpecies(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Name VARCHAR(30),")
+            .append("Photo TEXT,")
+            .append("Quality NUMERIC(10),")
+            .append("Biomass NUMERIC(5,1),")
+            .append("ID_Zooplankton VARCHAR(17),")
+            .append("FOREIGN KEY (ID_Zooplankton) REFERENCES Zooplankton(SampleID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String DOMINANT_BENTHOSE_SPECIES = new StringBuffer()
+            .append("CREATE TABLE DominantBenthosSpecies(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Name VARCHAR(30),")
+            .append("Photo TEXT,")
+            .append("Quality NUMERIC(10),")
+            .append("iomass NUMERIC(5,1),")
+            .append("ID_Benthos VARCHAR(17),")
+            .append("FOREIGN KEY (ID_Benthos) REFERENCES Benthos(SampleID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String SEDIMENT = new StringBuffer()
+            .append("CREATE TABLE Sediment(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Photo TEXT")
+            .append(")").toString();
+
+    public static final String FRACTURE_SURFACE_SEDIMENT = new StringBuffer()
+            .append("CREATE TABLE FractureSurface_Sediment (")
+            .append("ID_FractureSurface VARCHAR(17) PRIMARY KEY,")
+            .append("ID_Sediment VARCHAR(17),")
+            .append("FOREIGN KEY (ID_FractureSurface) REFERENCES FractureSurface(ID) ON DELETE CASCADE,")
+            .append("FOREIGN KEY (ID_Sediment) REFERENCES Sediment(SampleID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String MEASURING_LINE = new StringBuffer()
+            .append("CREATE TABLE MeasuringLine(")
+            .append("ID VARCHAR(17) PRIMARY KEY,")
+            .append("StartLongitude NUMERIC(12,9),")
+            .append("StartLatitude NUMERIC(11,9),")
+            .append("EndLongitude NUMERIC(12,9),")
+            .append("EndLatitude NUMERIC(11,9),")
+            .append("ID_FractureSurface VARCHAR(17),")
+            .append("FOREIGN KEY (ID_FractureSurface) REFERENCES FractureSurface(ID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String MEASURING_POINT = new StringBuffer()
+            .append("CREATE TABLE MeasuringPoint(")
+            .append("ID VARCHAR(17) PRIMARY KEY,")
+            .append("Longitude NUMERIC(12,9),")
+            .append("Latitude NUMERIC(11,9),")
+            .append("ID_MeasuringLine VARCHAR(17),")
+            .append("FOREIGN KEY (ID_MeasuringLine) REFERENCES MeasuringLine(ID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String WATER_LAYER = new StringBuffer()
+            .append("CREATE TABLE WaterLayer(")
+            .append("ID VARCHAR(17) PRIMARY KEY,")
+            .append("Layer VARCHAR(2) NOT NULL,")
+            .append("Depth NUMERIC(5,2),")
+            .append("Temperature NUMERIC(5,2),")
+            .append("WaterLevel NUMERIC(5,2),")
+            .append("Velocity NUMERIC(10,2),")
+            .append("ID_MeasuringPoint VARCHAR(17),")
+            .append("FOREIGN KEY (ID_MeasuringPoint) REFERENCES MeasuringPoint(ID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String CATCHES = new StringBuffer()
+            .append("CREATE TABLE Catches(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Name VARCHAR(30),")
+            .append("Photo TEXT,")
+            .append("TotalQuality NUMERIC(8),")
+            .append("EggQuality NUMERIC(8),")
+            .append("FryQuality NUMERIC(8),")
+            .append("ID_WaterLayer VARCHAR(17),")
+            .append("FOREIGN KEY (ID_WaterLayer) REFERENCES WaterLayer(ID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String FISHES = new StringBuffer()
+            .append("CREATE TABLE Fishes(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Photo TEXT,")
+            .append("BodyLength NUMERIC(10),")
+            .append("Length NUMERIC(10),")
+            .append("BodyWeight NUMERIC(10,1),")
+            .append("Age NUMERIC(2),")
+            .append("ID_Catches VARCHAR(17),")
+            .append("FOREIGN KEY (ID_Catches) REFERENCES Catches(SampleID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String FISH_EGGS = new StringBuffer()
+            .append("CREATE TABLE FishEggs(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Photo TEXT,")
+            .append("Period VARCHAR(50),")
+            .append("Diameter NUMERIC(10,2),")
+            .append("EMDiameter NUMERIC(10,2),")
+            .append("PigmentProp VARCHAR(100),")
+            .append("EmbryoProp VARCHAR(100),")
+            .append("ID_Catches VARCHAR(17),")
+            .append("FOREIGN KEY (ID_Catches) REFERENCES Catches(SampleID) ON DELETE CASCADE")
+            .append(")").toString();
+
+    public static final String CATCH_TOOLS = new StringBuffer()
+            .append("CREATE TABLE CatchTools(")
+            .append("SampleID VARCHAR(17) PRIMARY KEY,")
+            .append("Name VARCHAR(40),")
+            .append("Photo TEXT,")
+            .append("NetsModel VARCHAR(8),")
+            .append("NetMouthArea NUMERIC(10,3),")
+            .append("NetMouthDip NUMERIC(3),")
+            .append("StartTime TIME,")
+            .append("EndTime TIME,")
+            .append("NetMouthVelocity NUMERIC(10,3)")
+            .append(")").toString();
+
+    public static final String WATER_LAYER_CATCH_TOOLS = new StringBuffer()
+            .append("CREATE TABLE WaterLayer_CatchTools (")
+            .append("ID_WaterLayer VARCHAR(17) PRIMARY KEY,")
+            .append("ID_CatchTools VARCHAR(17),")
+            .append("FOREIGN KEY (ID_WaterLayer) REFERENCES WaterLayer(ID) ON DELETE CASCADE,")
+            .append("FOREIGN KEY (ID_CatchTools) REFERENCES CatchTools(SampleID) ON DELETE CASCADE")
+            .append(")").toString();
+
+
+//    <<<<<<<<<<< 华丽的分割线，以上是最新代码 <<<<<<<<<<<<<<<
+
+
     public final static String CREATE_MONITOR_SITE = new StringBuffer()
             .append("CREATE TABLE ")
             .append(TableNames.MONITORING_SITE)
