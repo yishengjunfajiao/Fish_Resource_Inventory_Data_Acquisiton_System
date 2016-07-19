@@ -114,15 +114,9 @@ public class CreateSQLs {
     public static final String SEDIMENT = new StringBuffer()
             .append("CREATE TABLE Sediment(")
             .append("SampleID VARCHAR(17) PRIMARY KEY,")
-            .append("Photo TEXT")
-            .append(")").toString();
-
-    public static final String FRACTURE_SURFACE_SEDIMENT = new StringBuffer()
-            .append("CREATE TABLE FractureSurface_Sediment (")
-            .append("ID_FractureSurface VARCHAR(17) PRIMARY KEY,")
-            .append("ID_Sediment VARCHAR(17),")
-            .append("FOREIGN KEY (ID_FractureSurface) REFERENCES FractureSurface(ID) ON DELETE CASCADE,")
-            .append("FOREIGN KEY (ID_Sediment) REFERENCES Sediment(SampleID) ON DELETE CASCADE")
+            .append("ID_FractureSurface VARCHAR(17),")
+            .append("Photo TEXT,")
+            .append("FOREIGN KEY (ID_FractureSurface) REFERENCES FractureSurface(ID) ON DELETE CASCADE")
             .append(")").toString();
 
     public static final String MEASURING_LINE = new StringBuffer()
@@ -204,7 +198,9 @@ public class CreateSQLs {
             .append("NetMouthDip NUMERIC(3),")
             .append("StartTime TIME,")
             .append("EndTime TIME,")
-            .append("NetMouthVelocity NUMERIC(10,3)")
+            .append("NetMouthVelocity NUMERIC(10,3),")
+            .append("ID_WaterLayer VARCHAR(17),")
+            .append("FOREIGN KEY (ID_WaterLayer) REFERENCES WaterLayer(ID) ON DELETE CASCADE,")
             .append(")").toString();
 
     public static final String WATER_LAYER_CATCH_TOOLS = new StringBuffer()
@@ -215,9 +211,7 @@ public class CreateSQLs {
             .append("FOREIGN KEY (ID_CatchTools) REFERENCES CatchTools(SampleID) ON DELETE CASCADE")
             .append(")").toString();
 
-
 //    <<<<<<<<<<< 华丽的分割线，以上是最新代码 <<<<<<<<<<<<<<<
-
 
     public final static String CREATE_MONITOR_SITE = new StringBuffer()
             .append("CREATE TABLE ")
@@ -225,7 +219,7 @@ public class CreateSQLs {
             .append(" (")
             .append("InverstigationID VARCHAR(17) PRIMARY KEY,")
             .append("Institution VARCHAR(60) NOT NULL,")
-            .append("Investigator     VARCHAR(40) NOT NULL,")
+            .append("Investigator VARCHAR(40) NOT NULL,")
             .append("InvestigationDate SMALLDATETIME NOT NULL,")
             .append("Site VARCHAR(200) NOT NULL,")
             .append("River VARCHAR(20) NOT NULL,")

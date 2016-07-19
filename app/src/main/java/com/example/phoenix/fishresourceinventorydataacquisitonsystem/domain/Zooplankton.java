@@ -10,6 +10,12 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class Zooplankton extends BaseNode {
 
+    private String SampleID;
+    private String Photo;
+    private float Quality;
+    private float Biomass;
+    private String ID_FractureSurface;
+
     public void setSampleID(String sampleID) {
         SampleID = sampleID;
     }
@@ -30,16 +36,12 @@ public class Zooplankton extends BaseNode {
         this.ID_FractureSurface = ID_FractureSurface;
     }
 
-    private String SampleID;
-    private String Photo;
-    private float Quality;
-    private float Biomass;
 
     public String getID_FractureSurface() {
         return ID_FractureSurface;
     }
 
-    public String getSampleID() {
+    public String getKey() {
         return SampleID;
     }
 
@@ -54,8 +56,6 @@ public class Zooplankton extends BaseNode {
     public float getBiomass() {
         return Biomass;
     }
-
-    private String ID_FractureSurface;
 
 
     @Override

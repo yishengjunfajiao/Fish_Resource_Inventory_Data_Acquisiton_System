@@ -84,7 +84,7 @@ public class MonitoringSite extends BaseNode {
     private float EndLatitude;
     private String Weather;
     private float Temperature;
-
+    private int userId;
 
     @Override
     public String toString() {
@@ -100,4 +100,71 @@ public class MonitoringSite extends BaseNode {
         return CreatureLevels.MONITORING_SITE;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getInstitution() {
+        return Institution;
+    }
+
+    public String getInvestigator() {
+        return Investigator;
+    }
+
+    public String getInvestigationDate() {
+        return InvestigationDate;
+    }
+
+    public String getSite() {
+        return Site;
+    }
+
+    public String getRiver() {
+        return River;
+    }
+
+    public String getPhoto() {
+        return Photo;
+    }
+
+    public String getStartTime() {
+        return StartTime;
+    }
+
+    public String getEndTime() {
+        return EndTime;
+    }
+
+    public float getStartLongitude() {
+        return StartLongitude;
+    }
+
+    public float getStartLatitude() {
+        return StartLatitude;
+    }
+
+    public float getEndLongitude() {
+        return EndLongitude;
+    }
+
+    public float getEndLatitude() {
+        return EndLatitude;
+    }
+
+    public String getWeather() {
+        return Weather;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public float getTemperature() {
+        return Temperature;
+    }
+
+    public String getKey() {
+        return InverstigationID;
+    }
 }

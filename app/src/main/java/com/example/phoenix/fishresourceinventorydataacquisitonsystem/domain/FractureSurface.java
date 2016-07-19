@@ -11,6 +11,9 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
 public class FractureSurface extends BaseNode {
 
     private String ID;
+    private String Position;
+    private float Distance2Bank;
+    private String ID_MonitoringSite;
 
     public void setPosition(String position) {
         Position = position;
@@ -28,10 +31,6 @@ public class FractureSurface extends BaseNode {
         this.ID_MonitoringSite = ID_MonitoringSite;
     }
 
-    private String Position;
-    private float Distance2Bank;
-    private String ID_MonitoringSite;
-
 
     @Override
     public String toString() {
@@ -41,5 +40,21 @@ public class FractureSurface extends BaseNode {
     @Override
     public int getLevel() {
         return CreatureLevels.FRACTURE_SURFACE;
+    }
+
+    public String getKey() {
+        return ID;
+    }
+
+    public String getPosition() {
+        return Position;
+    }
+
+    public float getDistance2Bank() {
+        return Distance2Bank;
+    }
+
+    public String getID_MonitoringSite() {
+        return ID_MonitoringSite;
     }
 }

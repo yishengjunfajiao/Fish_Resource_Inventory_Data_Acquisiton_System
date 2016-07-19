@@ -9,7 +9,27 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  * Created by Phoenix on 2016/5/31.
  */
 public class MeasuringPoint extends BaseNode {
+
     public String ID;
+    public float Longitude;
+    public float Latitude;
+    public String ID_MeasuringLine;
+
+    public String getID_MeasuringLine() {
+        return ID_MeasuringLine;
+    }
+
+    public float getLatitude() {
+        return Latitude;
+    }
+
+    public float getLongitude() {
+        return Longitude;
+    }
+
+    public String getKey() {
+        return ID;
+    }
 
     public void setLongitude(float longitude) {
         Longitude = longitude;
@@ -27,9 +47,6 @@ public class MeasuringPoint extends BaseNode {
         this.ID_MeasuringLine = ID_MeasuringLine;
     }
 
-    public float Longitude;
-    public float Latitude;
-    public String ID_MeasuringLine;
 
     @Override
     public String toString() {

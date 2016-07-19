@@ -42,7 +42,7 @@ public class Benthos extends BaseNode {
     }
 
 
-    public String getSampleID() {
+    public String getKey() {
         return SampleID;
     }
 

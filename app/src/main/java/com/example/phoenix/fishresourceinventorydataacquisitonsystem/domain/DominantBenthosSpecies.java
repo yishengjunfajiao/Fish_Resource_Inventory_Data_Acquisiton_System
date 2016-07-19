@@ -11,6 +11,13 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class DominantBenthosSpecies extends BaseNode {
 
+    private String SampleID;
+    private String Name;
+    private String Photo;
+    private float Quality;
+    private float Biomass;
+    private String ID_Benthos;
+
     public void setSampleID(String sampleID) {
         SampleID = sampleID;
     }
@@ -35,13 +42,6 @@ public class DominantBenthosSpecies extends BaseNode {
         this.ID_Benthos = ID_Benthos;
     }
 
-    private String SampleID;
-    private String Name;
-    private String Photo;
-    private float Quality;
-    private float Biomass;
-    private String ID_Benthos;
-
 
     @Override
     public String toString() {
@@ -51,5 +51,30 @@ public class DominantBenthosSpecies extends BaseNode {
     @Override
     public int getLevel() {
         return CreatureLevels.DOMINANT_BENTHOS_SPECIES;
+    }
+
+    @Override
+    public String getKey() {
+        return SampleID;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getPhoto() {
+        return Photo;
+    }
+
+    public float getQuality() {
+        return Quality;
+    }
+
+    public float getBiomass() {
+        return Biomass;
+    }
+
+    public String getID_Benthos() {
+        return ID_Benthos;
     }
 }

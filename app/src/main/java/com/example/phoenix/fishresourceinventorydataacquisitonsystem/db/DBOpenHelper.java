@@ -28,7 +28,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQLs.DOMINANT_ZOOPLANKTON_SPECIES);
         db.execSQL(CreateSQLs.DOMINANT_BENTHOSE_SPECIES);
         db.execSQL(CreateSQLs.SEDIMENT);
-        db.execSQL(CreateSQLs.FRACTURE_SURFACE_SEDIMENT);
         db.execSQL(CreateSQLs.MEASURING_LINE);
         db.execSQL(CreateSQLs.MEASURING_POINT);
         db.execSQL(CreateSQLs.WATER_LAYER);

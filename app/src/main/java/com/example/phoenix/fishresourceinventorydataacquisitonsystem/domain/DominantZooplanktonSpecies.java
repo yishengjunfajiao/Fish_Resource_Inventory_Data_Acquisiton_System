@@ -9,7 +9,13 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  * Created by Phoenix on 2016/5/31.
  */
 public class DominantZooplanktonSpecies extends BaseNode {
+
     private String SampleID;
+    private String Name;
+    private String Photo;
+    private float Quality;
+    private float Biomass;
+    private String ID_Zooplankton;
 
     public void setName(String name) {
         Name = name;
@@ -35,13 +41,6 @@ public class DominantZooplanktonSpecies extends BaseNode {
         this.ID_Zooplankton = ID_Zooplankton;
     }
 
-    private String Name;
-    private String Photo;
-    private float Quality;
-    private float Biomass;
-    private String ID_Zooplankton;
-
-
     @Override
     public String toString() {
         return TableNames.DOMINANT_ZOOPLANKTON_SPECIES;
@@ -50,5 +49,29 @@ public class DominantZooplanktonSpecies extends BaseNode {
     @Override
     public int getLevel() {
         return CreatureLevels.DOMINANT_ZOOPLANKTON_SPECIES;
+    }
+
+    public String getKey() {
+        return SampleID;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getPhoto() {
+        return Photo;
+    }
+
+    public float getQuality() {
+        return Quality;
+    }
+
+    public float getBiomass() {
+        return Biomass;
+    }
+
+    public String getID_Zooplankton() {
+        return ID_Zooplankton;
     }
 }

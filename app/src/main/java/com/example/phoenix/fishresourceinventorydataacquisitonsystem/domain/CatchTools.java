@@ -9,6 +9,27 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  * Created by Phoenix on 2016/5/31.
  */
 public class CatchTools extends BaseNode {
+    //CatchTools主键
+    private String SampleID;
+    //网具名字
+    private String Name;
+    //照片路径，多个路径用分号隔开
+    private String Photo;
+    //网型
+    private String NetsModel;
+    //网口面积
+    private float NetMouthArea;
+    //网口倾角
+    private float NetMouthDip;
+    //开始时间
+    private String StartTime;
+    //结束时间
+    private String EndTime;
+    //网口流速
+    private float NetMouthVelocity;
+    // 水层外键
+    private String ID_WaterLayer;
+
     public void setSampleID(String sampleID) {
         SampleID = sampleID;
     }
@@ -45,30 +66,12 @@ public class CatchTools extends BaseNode {
         NetMouthVelocity = netMouthVelocity;
     }
 
-    //CatchTools主键
-    private String SampleID;
-    //网具名字
-    private String Name;
-    //照片路径，多个路径用分号隔开
-    private String Photo;
-    //网型
-    private String NetsModel;
-    //网口面积
-    private float NetMouthArea;
-    //网口倾角
-    private float NetMouthDip;
-    //开始时间
-    private String StartTime;
-    //结束时间
-    private String EndTime;
-    //网口流速
-    private float NetMouthVelocity;
 
     public float getNetMouthVelocity() {
         return NetMouthVelocity;
     }
 
-    public String getSampleID() {
+    public String getKey() {
         return SampleID;
     }
 
@@ -107,4 +110,11 @@ public class CatchTools extends BaseNode {
         return CreatureLevels.CATCH_TOOLS;
     }
 
+    public String getID_WaterLayer() {
+        return ID_WaterLayer;
+    }
+
+    public void setID_WaterLayer(String ID_WaterLayer) {
+        this.ID_WaterLayer = ID_WaterLayer;
+    }
 }

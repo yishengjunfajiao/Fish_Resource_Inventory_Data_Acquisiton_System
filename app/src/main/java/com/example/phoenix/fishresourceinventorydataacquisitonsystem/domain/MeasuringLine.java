@@ -9,7 +9,13 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  * Created by Phoenix on 2016/5/31.
  */
 public class MeasuringLine extends BaseNode {
+
     private String ID;
+    private float StartLongitude;
+    private float StartLatitude;
+    private float EndLongitude;
+    private float EndLatitude;
+    private String ID_FractureSurface;
 
     public void setStartLongitude(float startLongitude) {
         StartLongitude = startLongitude;
@@ -35,11 +41,6 @@ public class MeasuringLine extends BaseNode {
         this.ID_FractureSurface = ID_FractureSurface;
     }
 
-    private float StartLongitude;
-    private float StartLatitude;
-    private float EndLongitude;
-    private float EndLatitude;
-    private String ID_FractureSurface;
 
     @Override
     public int getLevel() {
@@ -49,5 +50,29 @@ public class MeasuringLine extends BaseNode {
     @Override
     public String toString() {
         return TableNames.MEASURING_LINE;
+    }
+
+    public String getKey() {
+        return ID;
+    }
+
+    public float getStartLongitude() {
+        return StartLongitude;
+    }
+
+    public float getStartLatitude() {
+        return StartLatitude;
+    }
+
+    public float getEndLongitude() {
+        return EndLongitude;
+    }
+
+    public float getEndLatitude() {
+        return EndLatitude;
+    }
+
+    public String getID_FractureSurface() {
+        return ID_FractureSurface;
     }
 }

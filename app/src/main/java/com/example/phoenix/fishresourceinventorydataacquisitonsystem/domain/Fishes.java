@@ -9,6 +9,15 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  * Created by Phoenix on 2016/5/31.
  */
 public class Fishes extends BaseNode {
+
+    private String SampleID;
+    private String Photo;
+    private float BodyLength;
+    private float Length;
+    private float BodyWeight;
+    private float Age;
+    private String ID_Catches;
+
     public void setSampleID(String sampleID) {
         SampleID = sampleID;
     }
@@ -37,19 +46,41 @@ public class Fishes extends BaseNode {
         this.ID_Catches = ID_Catches;
     }
 
-    private String SampleID;
-    private String Photo;
-    private float BodyLength;
-    private float Length;
-    private float BodyWeight;
-    private float Age;
-    private String ID_Catches;
     @Override
     public String toString() {
         return TableNames.FISHES;
     }
+
     @Override
     public int getLevel() {
         return CreatureLevels.FISHES;
+    }
+
+    public String getKey() {
+        return SampleID;
+    }
+
+    public String getPhoto() {
+        return Photo;
+    }
+
+    public float getBodyLength() {
+        return BodyLength;
+    }
+
+    public float getLength() {
+        return Length;
+    }
+
+    public float getBodyWeight() {
+        return BodyWeight;
+    }
+
+    public float getAge() {
+        return Age;
+    }
+
+    public String getID_Catches() {
+        return ID_Catches;
     }
 }

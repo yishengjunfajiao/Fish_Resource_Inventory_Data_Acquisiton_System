@@ -37,9 +37,9 @@ public class MenuAdapter extends BaseAdapter {
     private MenuList list;
     private Context context;
 
-    public MenuAdapter(Context context) {
-        this.list = MenuList.INSTANCE;
+    public MenuAdapter(Context context, MenuList list) {
         this.context = context;
+        this.list = list;
     }
 
     public List<TreeNode> getContentList() {

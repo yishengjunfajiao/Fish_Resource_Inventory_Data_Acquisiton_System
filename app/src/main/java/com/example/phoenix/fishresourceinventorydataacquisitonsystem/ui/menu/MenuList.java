@@ -26,7 +26,6 @@ public enum MenuList {
         return totalList;
     }
 
-
     public void updateNodes() {
         if (shownList == null) {
             shownList = new LinkedList<>();
@@ -104,6 +103,15 @@ public enum MenuList {
         totalList.add(pos + 1, t);
         open(index);
         updateNodes();
+    }
+
+    /**
+     * 在树的尾部添加一个节点
+     *
+     * @param t
+     */
+    public void addNode(TreeNode t) {
+        addNode(t, totalList.size() - 1);
     }
 
 }

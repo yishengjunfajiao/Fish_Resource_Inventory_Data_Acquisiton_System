@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuAdapter;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuList;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.DialogUtils;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.MenuUtils;
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     public Toolbar toolbar = null;
     private MenuAdapter menuAdapter;
     private FragmentManager fragmentManager = null;
+    private MenuList menuList = null;
 
     //记录系统当前时间
     private static long current_time = 0;      //记录系统当前时间
@@ -133,7 +135,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initTreeMenu() {
-        menuAdapter = new MenuAdapter(this);
+        menuList = MenuList.INSTANCE;
+        MenuUtils.initMenu(MainActivity.this, menuList);
+        menuAdapter = new MenuAdapter(this, menuList);
         lv_tree_menu.setAdapter(menuAdapter);
     }
 
@@ -183,12 +187,10 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.head_image:
-
                 Toast.makeText(MainActivity.this, "换头像", Toast.LENGTH_SHORT).show();
                 break;
         }

@@ -10,6 +10,15 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class FishEggs extends BaseNode {
 
+    private String SampleID;
+    private String Photo;
+    private String Period;
+    private float Diameter;
+    private float EMDiameter;
+    private String PigmentProp;
+    private String EmbryoProp;
+    private String ID_Catches;
+
     public void setSampleID(String sampleID) {
         SampleID = sampleID;
     }
@@ -42,14 +51,6 @@ public class FishEggs extends BaseNode {
         this.ID_Catches = ID_Catches;
     }
 
-    private String SampleID;
-    private String Photo;
-    private String Period;
-    private float Diameter;
-    private float EMDiameter;
-    private String PigmentProp;
-    private String EmbryoProp;
-    private String ID_Catches;
 
     @Override
     public String toString() {
@@ -59,5 +60,37 @@ public class FishEggs extends BaseNode {
     @Override
     public int getLevel() {
         return CreatureLevels.FISH_EGGS;
+    }
+
+    public String getKey() {
+        return SampleID;
+    }
+
+    public String getPhoto() {
+        return Photo;
+    }
+
+    public String getPeriod() {
+        return Period;
+    }
+
+    public float getDiameter() {
+        return Diameter;
+    }
+
+    public float getEMDiameter() {
+        return EMDiameter;
+    }
+
+    public String getPigmentProp() {
+        return PigmentProp;
+    }
+
+    public String getEmbryoProp() {
+        return EmbryoProp;
+    }
+
+    public String getID_Catches() {
+        return ID_Catches;
     }
 }

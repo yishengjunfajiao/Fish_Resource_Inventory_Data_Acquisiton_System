@@ -11,7 +11,11 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Creat
  */
 public class Sediment extends BaseNode {
 
-    public String getSampleID() {
+    private String SampleID;
+    private String Photo;
+    private String ID_FractureSurface;
+
+    public String getKey() {
         return SampleID;
     }
 
@@ -27,8 +31,6 @@ public class Sediment extends BaseNode {
         Photo = photo;
     }
 
-    private String SampleID;
-    private String Photo;
 
     @Override
     public String toString() {
@@ -38,5 +40,13 @@ public class Sediment extends BaseNode {
     @Override
     public int getLevel() {
         return CreatureLevels.SEDIMENT;
+    }
+
+    public String getID_FractureSurface() {
+        return ID_FractureSurface;
+    }
+
+    public void setID_FractureSurface(String ID_FractureSurface) {
+        this.ID_FractureSurface = ID_FractureSurface;
     }
 }
