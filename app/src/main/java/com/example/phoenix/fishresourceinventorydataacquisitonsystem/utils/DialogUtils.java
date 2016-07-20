@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.dao.DbDao;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.db.TableIds;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.db.TableNames;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Benthos;
@@ -54,9 +55,11 @@ import java.util.List;
  * Created by Phoenix on 2016/6/23.
  */
 public class DialogUtils {
-    public static void showAddNodeDialog(final FragmentManager fragmentManager, Context context, final MenuAdapter menuAdapter, final int position) throws Exception {
+    public static void showAddNodeDialog(final FragmentManager fragmentManager, final Context context, final MenuAdapter menuAdapter, final int position) throws Exception {
         //获取被长按的节点，得到能够新添加节点的种类
         List<String> avaliable_node = getAvaliableNode(menuAdapter, position);
+        //获取被长按节点的主键
+        final String fk = getMainKey(menuAdapter, position);
         if (avaliable_node == null) {
             throw new Exception("no avaliable node.");
         }
@@ -81,13 +84,15 @@ public class DialogUtils {
             @Override
             public void onClick(View v) {
                 int id = rg.getCheckedRadioButtonId();
-                Log.e("onclick", String.valueOf(id));
                 BaseNode node = null;
                 Fragment fragment = null;
+                DbDao dbDao = DbDao.getInstance(context);
+                // 根据节点的种类创建新的Fragment，并在数据库中建立相应的表
                 switch (id) {
                     case TableIds.BENTHOS:
                         node = new Benthos();
                         fragment = new BenthicOrganismFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.CATCH_TOOLS:
                         node = new CatchTools();
@@ -120,34 +125,43 @@ public class DialogUtils {
                     case TableIds.FRACTURE_SURFACE:
                         node = new FractureSurface();
                         fragment = new FractureSurfaceFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.MEASURING_LINE:
                         node = new MeasuringLine();
                         fragment = new MeasuringLineFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.MEASURING_POINT:
                         node = new MeasuringPoint();
                         fragment = new MeasuringPointFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.MONITORING_SITE:
                         node = new MonitoringSite();
                         fragment = new MonitoringSiteFragment();
+                        // 插入数据库
+                        dbDao.addNewData(node, null);
                         break;
                     case TableIds.PHYTOPLANKTON:
                         node = new Phytoplankton();
                         fragment = new PhytoplanktonFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.SEDIMENT:
                         node = new Sediment();
                         fragment = new SedimentFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.WATER_LAYER:
                         node = new WaterLayer();
                         fragment = new WaterCourseFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.ZOOPLANKTON:
                         node = new Zooplankton();
                         fragment = new ZooplanktonFragment();
+                        dbDao.addNewData(node, fk);
                         break;
                     default:
                         node = null;
@@ -157,6 +171,7 @@ public class DialogUtils {
                 if (node != null) {
                     TreeNode t = new TreeNode(node);
                     t.setFragment(fragment);
+                    // 将 Fragment添加进节点
                     fragmentManager.beginTransaction().add(R.id.app_main_content, fragment).commit();
                     menuAdapter.addNode(t, position);
                     menuAdapter.notifyDataSetChanged();
@@ -170,6 +185,14 @@ public class DialogUtils {
             }
         });
         dialog.show();
+    }
+
+    private static String getMainKey(MenuAdapter menuAdapter, int position) {
+        if (position != -1) {
+            TreeNode treeNode = menuAdapter.getContentList().get(position);
+            return treeNode.getValue().getKey();
+        }
+        return null;
     }
 
     private static void setId(RadioButton rb, String node_name) {

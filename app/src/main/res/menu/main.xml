@@ -2,7 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_save_native"
+        android:orderInCategory="100"
+        android:title="保存到本地"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_submit_cloud"
         android:orderInCategory="100"
         android:title="提交数据"
         app:showAsAction="never" />

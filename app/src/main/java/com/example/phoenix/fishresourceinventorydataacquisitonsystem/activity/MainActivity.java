@@ -1,5 +1,6 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Paint;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.dao.DbDao;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuAdapter;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuList;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.DialogUtils;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity
     private MenuAdapter menuAdapter;
     private FragmentManager fragmentManager = null;
     private MenuList menuList = null;
+    private Fragment currentFragment = null;
 
     //记录系统当前时间
     private static long current_time = 0;      //记录系统当前时间
@@ -58,6 +62,12 @@ public class MainActivity extends AppCompatActivity
         MenuUtils.showNodeInfo(fragmentManager, menuAdapter, position);
     }
 
+    /**
+     * 添加新的检测点
+     *
+     * @param view
+     * @throws Exception
+     */
     @Event(value = R.id.add_monitor_site, type = View.OnClickListener.class)
     private void addMonitorSite(View view) throws Exception {
         DialogUtils.showAddNodeDialog(fragmentManager, MainActivity.this, MainActivity.this.menuAdapter, -1);
@@ -111,7 +121,6 @@ public class MainActivity extends AppCompatActivity
         name = (TextView) findViewById(R.id.name);
         name.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);       //下划线
 
-        initTreeMenu();
 
         /*tab = (TabLayout) findViewById(R.id.title_tab);
         for(int i = 0;i < ConstantData.TITLE.length;i ++){
@@ -129,13 +138,12 @@ public class MainActivity extends AppCompatActivity
 
         //测试界面
         //transaction.replace(R.id.fragment_container,new SedimentFragment()).commit();
-
         initTreeMenu();
 
     }
 
     private void initTreeMenu() {
-        menuList = MenuList.INSTANCE;
+        menuList = new MenuList();
         MenuUtils.initMenu(MainActivity.this, menuList);
         menuAdapter = new MenuAdapter(this, menuList);
         lv_tree_menu.setAdapter(menuAdapter);
@@ -163,12 +171,15 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_submit_cloud) {
             //数据提交云端
-
+            return true;
+        } else if (id == R.id.action_save_native) {
+            //数据提交到本地
+            if (currentFragment != null) {
+            }
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -196,4 +207,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void setCurrentFragment(Fragment currentFragment) {
+        this.currentFragment = currentFragment;
+    }
 }

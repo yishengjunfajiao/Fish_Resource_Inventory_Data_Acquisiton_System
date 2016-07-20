@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity.MainActivity;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Benthos;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.CatchTools;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Catches;
@@ -16,7 +17,6 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Domi
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.DominantPhytoplanktonSpecies;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.DominantZooplanktonSpecies;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.FishEggs;
-import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.FishRoot;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Fishes;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.FractureSurface;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.MeasuringLine;
@@ -42,6 +42,10 @@ public class MenuAdapter extends BaseAdapter {
         this.list = list;
     }
 
+    /**
+     * 获取所有展现出来的节点
+     * @return
+     */
     public List<TreeNode> getContentList() {
         return list.getShownList();
     }
@@ -101,9 +105,10 @@ public class MenuAdapter extends BaseAdapter {
             inflate = View.inflate(context, R.layout.item_water_layer, null);
         } else if (node.getValue() instanceof Zooplankton) {
             inflate = View.inflate(context, R.layout.item_zooplankton, null);
-        } else if (node.getValue() instanceof FishRoot) {
-            inflate = View.inflate(context, R.layout.item_tree_menu_root, null);
         }
+//        else if (node.getValue() instanceof FishRoot) {
+//            inflate = View.inflate(context, R.layout.item_tree_menu_root, null);
+//        }
         TextView tv = (TextView) inflate.findViewById(R.id.tv);
         tv.setText(node.getValue().toString());
         return inflate;
@@ -127,5 +132,6 @@ public class MenuAdapter extends BaseAdapter {
         if (f != null) {
             transaction.show(f);
         }
+        ((MainActivity) context).setCurrentFragment(f);
     }
 }

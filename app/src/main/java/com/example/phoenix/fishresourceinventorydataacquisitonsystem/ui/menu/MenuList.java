@@ -6,12 +6,10 @@ import java.util.List;
 /**
  * Created by Phoenix on 2016/6/23.
  */
-public enum MenuList {
+public class MenuList {
 
-    INSTANCE;
-
-    private static LinkedList<TreeNode> totalList = new LinkedList<>();
-    private static LinkedList<TreeNode> shownList = new LinkedList<>();
+    private LinkedList<TreeNode> totalList = new LinkedList<>();
+    private LinkedList<TreeNode> shownList = new LinkedList<>();
 
     /**
      * 返回状态为shown的节点

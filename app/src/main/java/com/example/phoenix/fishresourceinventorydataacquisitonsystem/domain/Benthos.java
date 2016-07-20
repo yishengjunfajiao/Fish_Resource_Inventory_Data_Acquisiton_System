@@ -17,7 +17,7 @@ public class Benthos extends BaseNode {
     //数量
     private int Quality = 0;
     //生物量
-    private int Biomass = 0;
+    private float Biomass = 0;
     //断面外键
     private String ID_FractureSurface = null;
 
@@ -33,7 +33,7 @@ public class Benthos extends BaseNode {
         Quality = quality;
     }
 
-    public void setBiomass(int biomass) {
+    public void setBiomass(float biomass) {
         Biomass = biomass;
     }
 
@@ -54,7 +54,7 @@ public class Benthos extends BaseNode {
         return Quality;
     }
 
-    public int getBiomass() {
+    public float getBiomass() {
         return Biomass;
     }
 
