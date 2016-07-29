@@ -26,6 +26,7 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Phyt
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Sediment;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.WaterLayer;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.Zooplankton;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.base.BaseFragment;
 
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class MenuAdapter extends BaseAdapter {
 
     /**
      * 获取所有展现出来的节点
+     *
      * @return
      */
     public List<TreeNode> getContentList() {
@@ -106,9 +108,6 @@ public class MenuAdapter extends BaseAdapter {
         } else if (node.getValue() instanceof Zooplankton) {
             inflate = View.inflate(context, R.layout.item_zooplankton, null);
         }
-//        else if (node.getValue() instanceof FishRoot) {
-//            inflate = View.inflate(context, R.layout.item_tree_menu_root, null);
-//        }
         TextView tv = (TextView) inflate.findViewById(R.id.tv);
         tv.setText(node.getValue().toString());
         return inflate;
@@ -128,7 +127,10 @@ public class MenuAdapter extends BaseAdapter {
                 transaction.hide(t.getFragment());
             }
         }
-        Fragment f = list.getShownList().get(position).getFragment();
+        BaseFragment f = null;
+        if (list.getShownList().size() != 0) {
+            f = list.getShownList().get(position).getFragment();
+        }
         if (f != null) {
             transaction.show(f);
         }

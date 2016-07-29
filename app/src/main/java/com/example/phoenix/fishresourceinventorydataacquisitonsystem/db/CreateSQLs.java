@@ -176,7 +176,7 @@ public class CreateSQLs {
             .append(")").toString();
 
     public static final String FISH_EGGS = new StringBuffer()
-            .append("CREATE TABLE FishEggs(")
+            .append("CREATE TABLE FishEggs (")
             .append("SampleID VARCHAR(17) PRIMARY KEY,")
             .append("Photo TEXT,")
             .append("Period VARCHAR(50),")

@@ -45,6 +45,7 @@ import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.Ph
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.SedimentFragment;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.WaterCourseFragment;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.ZooplanktonFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.base.BaseFragment;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuAdapter;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.TreeNode;
 
@@ -85,82 +86,89 @@ public class DialogUtils {
             public void onClick(View v) {
                 int id = rg.getCheckedRadioButtonId();
                 BaseNode node = null;
-                Fragment fragment = null;
+                BaseFragment fragment = null;
                 DbDao dbDao = DbDao.getInstance(context);
                 // 根据节点的种类创建新的Fragment，并在数据库中建立相应的表
                 switch (id) {
                     case TableIds.BENTHOS:
                         node = new Benthos();
-                        fragment = new BenthicOrganismFragment();
+                        fragment = new BenthicOrganismFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     case TableIds.CATCH_TOOLS:
                         node = new CatchTools();
-                        fragment = new NettingGearFragment();
+                        fragment = new NettingGearFragment(node);
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.CATCHES:
                         node = new Catches();
-                        fragment = new CatchFragment();
+                        fragment = new CatchFragment(node);
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.DOMINANT_BENTHOS_SPECIES:
                         node = new DominantBenthosSpecies();
-                        fragment = new DominantSpeciesFragment();
+                        fragment = new DominantSpeciesFragment(node);
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.DOMINANT_PHYTOPLANKTON_SPECIES:
                         node = new DominantPhytoplanktonSpecies();
-                        fragment = new DominantSpeciesFragment();
+                        fragment = new DominantSpeciesFragment(node);
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.DOMINANT_ZOOPLANKTON_SPECIES:
                         node = new DominantZooplanktonSpecies();
-                        fragment = new DominantSpeciesFragment();
+                        fragment = new DominantSpeciesFragment(node);
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.FISH_EGGS:
                         node = new FishEggs();
-                        fragment = new EggSampleFragment();
+                        fragment = new EggSampleFragment(node);
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.FISHES:
                         node = new Fishes();
-                        fragment = new FishSampleFragment();
+                        fragment = new FishSampleFragment(node);
+                        dbDao.addNewData(node, fk);
                         break;
                     case TableIds.FRACTURE_SURFACE:
                         node = new FractureSurface();
-                        fragment = new FractureSurfaceFragment();
+                        fragment = new FractureSurfaceFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     case TableIds.MEASURING_LINE:
                         node = new MeasuringLine();
-                        fragment = new MeasuringLineFragment();
+                        fragment = new MeasuringLineFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     case TableIds.MEASURING_POINT:
                         node = new MeasuringPoint();
-                        fragment = new MeasuringPointFragment();
+                        fragment = new MeasuringPointFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     case TableIds.MONITORING_SITE:
                         node = new MonitoringSite();
-                        fragment = new MonitoringSiteFragment();
+                        fragment = new MonitoringSiteFragment(node);
                         // 插入数据库
                         dbDao.addNewData(node, null);
                         break;
                     case TableIds.PHYTOPLANKTON:
                         node = new Phytoplankton();
-                        fragment = new PhytoplanktonFragment();
+                        fragment = new PhytoplanktonFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     case TableIds.SEDIMENT:
                         node = new Sediment();
-                        fragment = new SedimentFragment();
+                        fragment = new SedimentFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     case TableIds.WATER_LAYER:
                         node = new WaterLayer();
-                        fragment = new WaterCourseFragment();
+                        fragment = new WaterCourseFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     case TableIds.ZOOPLANKTON:
                         node = new Zooplankton();
-                        fragment = new ZooplanktonFragment();
+                        fragment = new ZooplanktonFragment(node);
                         dbDao.addNewData(node, fk);
                         break;
                     default:

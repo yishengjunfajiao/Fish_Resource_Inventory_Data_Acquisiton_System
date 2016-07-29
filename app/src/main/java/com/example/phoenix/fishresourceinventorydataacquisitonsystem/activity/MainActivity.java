@@ -2,7 +2,6 @@ package com.example.phoenix.fishresourceinventorydataacquisitonsystem.activity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +20,9 @@ import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.dao.DbDao;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.MonitoringSite;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.MonitoringSiteFragment;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.base.BaseFragment;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuAdapter;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu.MenuList;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.DialogUtils;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity
     private MenuAdapter menuAdapter;
     private FragmentManager fragmentManager = null;
     private MenuList menuList = null;
-    private Fragment currentFragment = null;
+    private BaseFragment currentFragment = null;
 
     //记录系统当前时间
     private static long current_time = 0;      //记录系统当前时间
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity
     private void init() {
         fragmentManager = getFragmentManager();
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("FRIDAS");
+        toolbar.setTitle("鱼类管理系统");
         setSupportActionBar(toolbar);
 
         //初始化抽屉组件
@@ -144,9 +145,10 @@ public class MainActivity extends AppCompatActivity
 
     private void initTreeMenu() {
         menuList = new MenuList();
-        MenuUtils.initMenu(MainActivity.this, menuList);
+        MenuUtils.initMenu(MainActivity.this, menuList, fragmentManager);
         menuAdapter = new MenuAdapter(this, menuList);
         lv_tree_menu.setAdapter(menuAdapter);
+        MenuUtils.showNodeInfo(fragmentManager, menuAdapter, 0);
     }
 
     @Override
@@ -176,7 +178,9 @@ public class MainActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.action_save_native) {
             //数据提交到本地
+            DbDao dbDao = new DbDao(MainActivity.this);
             if (currentFragment != null) {
+                dbDao.updateNode(currentFragment.save());
             }
             return true;
         }
@@ -207,7 +211,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void setCurrentFragment(Fragment currentFragment) {
+    public void setCurrentFragment(BaseFragment currentFragment) {
         this.currentFragment = currentFragment;
     }
 }

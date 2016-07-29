@@ -1,6 +1,7 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,11 +13,14 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.base.BaseNode;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.base.BaseFragment;
 
 /**
  * 维护 卵样本 界面
- * */
-public class EggSampleFragment extends Fragment implements View.OnClickListener{
+ */
+@SuppressLint("ValidFragment")
+public class EggSampleFragment extends BaseFragment implements View.OnClickListener {
     //发育期
     private EditText puberty = null;
     //卵径
@@ -39,7 +43,11 @@ public class EggSampleFragment extends Fragment implements View.OnClickListener{
     private RelativeLayout.LayoutParams params = null;
 
     public EggSampleFragment() {
-        // Required empty public constructor
+        super(null);
+    }
+
+    public EggSampleFragment(BaseNode baseNode) {
+        super(baseNode);
     }
 
 
@@ -51,9 +59,9 @@ public class EggSampleFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
-    private void init(View view){
+    private void init(View view) {
         size = getActivity().getWindowManager().getDefaultDisplay().getWidth();
-        params = new RelativeLayout.LayoutParams(size/5,size/5);
+        params = new RelativeLayout.LayoutParams(size / 5, size / 5);
 
         puberty = (EditText) view.findViewById(R.id.puberty);
         eggSize = (EditText) view.findViewById(R.id.egg_size);
@@ -63,7 +71,7 @@ public class EggSampleFragment extends Fragment implements View.OnClickListener{
 
         addPic = (GridLayout) view.findViewById(R.id.cont_egg_add_pic);
         addPicView = LayoutInflater.from(getActivity())
-                .inflate(R.layout.grid_view_add_pic,null);
+                .inflate(R.layout.grid_view_add_pic, null);
         addPicView.setLayoutParams(params);
         addPicView.setOnClickListener(this);
         addPic.addView(addPicView);
@@ -74,7 +82,7 @@ public class EggSampleFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.add_pic:
 
                 Toast.makeText(getActivity(), "照片", Toast.LENGTH_SHORT).show();
@@ -84,5 +92,10 @@ public class EggSampleFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(), "确定", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    @Override
+    public BaseNode save() {
+        return null;
     }
 }

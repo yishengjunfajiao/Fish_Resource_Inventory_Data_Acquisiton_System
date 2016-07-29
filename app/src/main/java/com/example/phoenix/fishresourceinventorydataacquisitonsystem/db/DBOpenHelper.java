@@ -33,6 +33,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL(CreateSQLs.WATER_LAYER);
         db.execSQL(CreateSQLs.CATCHES);
         db.execSQL(CreateSQLs.FISHES);
+        db.execSQL(CreateSQLs.FISH_EGGS);
         db.execSQL(CreateSQLs.CATCH_TOOLS);
         db.execSQL(CreateSQLs.WATER_LAYER_CATCH_TOOLS);
 //        db.execSQL(CreateSQLs.CREATE_MONITOR_SITE);

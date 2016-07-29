@@ -1,5 +1,5 @@
  <resources>
-    <string name="app_name">"FRIDAS"</string>
+    <string name="app_name">鱼类管理系统</string>
     <string name="title_activity_monitoring_site">MonitoringSiteActivity</string>
     <string name="title_activity_fracture_surface">FractureSurfaceActivity</string>
     <string name="title_activity_measuring_line">MeasuringLineActivity</string>

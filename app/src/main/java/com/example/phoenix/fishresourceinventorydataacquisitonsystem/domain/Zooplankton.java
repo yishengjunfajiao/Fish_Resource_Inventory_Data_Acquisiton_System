@@ -12,7 +12,7 @@ public class Zooplankton extends BaseNode {
 
     private String SampleID;
     private String Photo;
-    private float Quality;
+    private int Quality;
     private float Biomass;
     private String ID_FractureSurface;
 
@@ -24,7 +24,7 @@ public class Zooplankton extends BaseNode {
         Photo = photo;
     }
 
-    public void setQuality(float quality) {
+    public void setQuality(int quality) {
         Quality = quality;
     }
 

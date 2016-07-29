@@ -6,7 +6,7 @@ import android.util.Log;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.dao.DbDao;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.MonitoringSite;
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.base.BaseNode;
-import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.Utils;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.utils.TimeUtils;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import java.util.List;
 public class Test extends AndroidTestCase {
 
     public void testTime() {
-        String time = Utils.getTime();
-        Log.e("test", Utils.getTime());
+        String time = TimeUtils.getTime();
+        Log.e("test", TimeUtils.getTime());
     }
 
     public void testAddMonitor() {

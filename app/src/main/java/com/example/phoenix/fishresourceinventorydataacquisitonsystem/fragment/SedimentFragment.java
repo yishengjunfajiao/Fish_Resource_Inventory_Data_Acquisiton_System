@@ -1,7 +1,7 @@
 package com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment;
 
 
-import android.app.Fragment;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +12,14 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.R;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.base.BaseNode;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.base.BaseFragment;
 
 /**
  * 维护 沉积物 界面
- * */
-public class SedimentFragment extends Fragment implements OnClickListener{
+ */
+@SuppressLint("ValidFragment")
+public class SedimentFragment extends BaseFragment implements OnClickListener {
     //添加照片
     private GridLayout addPicture = null;
     //确认按钮
@@ -28,9 +31,12 @@ public class SedimentFragment extends Fragment implements OnClickListener{
     private int size;
     private RelativeLayout.LayoutParams params = null;
 
-
     public SedimentFragment() {
-        // Required empty public constructor
+        super(null);
+    }
+
+    public SedimentFragment(BaseNode baseNode) {
+        super(baseNode);
     }
 
 
@@ -42,13 +48,13 @@ public class SedimentFragment extends Fragment implements OnClickListener{
         return view;
     }
 
-    private void init(View view){
+    private void init(View view) {
         size = getActivity().getWindowManager().getDefaultDisplay().getWidth();
-        params = new RelativeLayout.LayoutParams(size/5,size/5);
+        params = new RelativeLayout.LayoutParams(size / 5, size / 5);
 
         addPicture = (GridLayout) view.findViewById(R.id.sediment_add_pic);
         addPictureView = LayoutInflater.from(getActivity())
-                .inflate(R.layout.grid_view_add_pic,null);
+                .inflate(R.layout.grid_view_add_pic, null);
         addPictureView.setLayoutParams(params);
         addPictureView.setOnClickListener(this);
         addPicture.addView(addPictureView);
@@ -59,7 +65,7 @@ public class SedimentFragment extends Fragment implements OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.add_pic:
 
                 Toast.makeText(getActivity(), "照片", Toast.LENGTH_SHORT).show();
@@ -69,5 +75,10 @@ public class SedimentFragment extends Fragment implements OnClickListener{
                 Toast.makeText(getActivity(), "确定", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    @Override
+    public BaseNode save() {
+        return null;
     }
 }

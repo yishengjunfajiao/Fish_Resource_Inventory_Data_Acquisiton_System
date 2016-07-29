@@ -117,4 +117,8 @@ public class CatchTools extends BaseNode {
     public void setID_WaterLayer(String ID_WaterLayer) {
         this.ID_WaterLayer = ID_WaterLayer;
     }
+
+    public String getEndTime() {
+        return EndTime;
+    }
 }

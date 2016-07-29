@@ -4,8 +4,9 @@ import java.util.Calendar;
 
 /**
  * Created by Phoenix on 2016/7/20.
+ * 用于获取系统当前时间
  */
-public class Utils {
+public class TimeUtils {
 
     public static String getTime() {
         StringBuilder sb = new StringBuilder();

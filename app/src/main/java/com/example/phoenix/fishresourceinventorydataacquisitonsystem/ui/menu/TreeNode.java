@@ -4,6 +4,7 @@ package com.example.phoenix.fishresourceinventorydataacquisitonsystem.ui.menu;
 import android.app.Fragment;
 
 import com.example.phoenix.fishresourceinventorydataacquisitonsystem.domain.base.BaseNode;
+import com.example.phoenix.fishresourceinventorydataacquisitonsystem.fragment.base.BaseFragment;
 
 /**
  * Created by Phoenix on 2016/5/31.
@@ -13,7 +14,7 @@ public class TreeNode {
     protected boolean isShown;
     protected boolean isExtended;
     private BaseNode node;
-    private Fragment fragment;
+    private BaseFragment fragment;
 
     public TreeNode(BaseNode node) {
         isShown = false;
@@ -25,11 +26,11 @@ public class TreeNode {
         return false;
     }
 
-    public void setFragment(Fragment fragment) {
+    public void setFragment(BaseFragment fragment) {
         this.fragment = fragment;
     }
 
-    public Fragment getFragment() {
+    public BaseFragment getFragment() {
         return this.fragment;
     }
 

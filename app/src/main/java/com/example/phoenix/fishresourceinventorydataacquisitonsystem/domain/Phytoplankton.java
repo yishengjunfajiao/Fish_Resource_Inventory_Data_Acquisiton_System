@@ -12,7 +12,7 @@ public class Phytoplankton extends BaseNode {
 
     private String SampleID;
     private String Photo;
-    private float Quality;
+    private int Quality;
     private float Biomass;
     private String ID_FractureSurface;
 
@@ -24,7 +24,7 @@ public class Phytoplankton extends BaseNode {
         Photo = photo;
     }
 
-    public void setQuality(float quality) {
+    public void setQuality(int quality) {
         Quality = quality;
     }
 
@@ -49,7 +49,7 @@ public class Phytoplankton extends BaseNode {
         return Photo;
     }
 
-    public float getQuality() {
+    public int getQuality() {
         return Quality;
     }
 
